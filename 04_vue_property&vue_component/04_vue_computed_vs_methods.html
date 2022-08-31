@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 方法 - computed vs methods</title>
+</head>
+<body>
+  <h1>Vue 方法 - computed vs methods</h1>
+
+  <div id="app">
+    <!-- methods -->
+    <h3>methods</h3>
+    {{ methodsTotal() }}
+    {{ methodsTotal() }}
+    {{ methodsTotal() }}
+
+
+
+    <!-- computed -->
+    <h3>computed</h3>
+    {{ computedTotal }}
+    {{ computedTotal }}
+    {{ computedTotal }}
+
+
+
+    13:56 上課
+
+    <input type="text" v-model="a">｜<input type="text" v-model="b">
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          a: 1,
+          b: 2
+        }
+      },
+      methods: {
+        methodsTotal() {
+          console.log('methods');
+          return this.a + this.b
+        },
+      },
+      computed: {
+        computedTotal() {
+          // computed 本身會緩存資料
+          // 核心重點：當資料（data）沒有任何變化時，它就不會再次執行，而只回傳前一次的結果
+          console.log('computed');
+          return this.a + this.b;
+        },
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

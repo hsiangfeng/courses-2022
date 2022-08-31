@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - 語法糖</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - 語法糖</h1>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+
+  <script>
+    // Q: 請讓以下程式碼正常執行
+    // const obj = {
+    //   myName: '物件',
+    //   // 原始題目
+    //   fn: ()=>  {
+    //     return this.myName;
+    //   },
+    //   // 答案
+    //   fn() {
+    //     return this.myName;
+    //   }
+    // }
+    // console.log(obj.fn());
+
+
+
+
+
+
+
+
+
+    // Q: 請以縮寫形式改寫
+    // const myName = 'Ray';
+    // const people = {
+    //   // 題目
+    //   // myName: myName
+    //   // 答案，核心重點，物件的名稱必須要相同
+    //   myName,
+    // };
+    // console.log(people);
+
+
+
+
+
+
+
+
+    // Q: 請以展開運算子形式合併兩個陣列
+    // const groupA = ['小明', '杰倫', '阿姨'];
+    // const groupB = ['老媽', '老爸'];
+    // // 原始題目
+    // // const groupAll = groupA.concat(groupB);
+    // // 答案
+    // const groupAll = [...groupA,...groupB];
+    // console.log(groupAll);
+
+
+
+
+
+
+
+
+    // Q: 請試著將 methods 合併到 obj 中，讓程式碼可以正常運作
+    // const methods = {
+    //   fn1() {
+    //     console.log('fn1');
+    //   },
+    //   fn2() {
+    //     console.log('fn2');
+    //   },
+    // }
+
+    // const obj = {
+    //   myName: '小明',
+    //   age: 18,
+    //   // 答案
+    //   ...methods,
+    // };
+    // obj.fn1();
+    // obj.fn2();
+
+
+
+
+
+
+
+
+    // Q: 請取出 goWork 作為單一函式，讓程式碼可以正常運作
+    // const methods = {
+    //   goHome() {
+    //     console.log('Ray 下班回家');
+    //   },
+    //   goWork() {
+    //     console.log('Ray 去上班');
+    //   }
+    // };
+    // // 早期開發寫法
+    // // const goWork = methods.goWork;
+    // // goWork()
+
+    // const { goWork, goHome } = methods;
+    // goWork();
+    // goHome();
+
+
+
+
+
+
+
+    // Q: 請試著讓以下程式碼可以運作
+    // const family = {
+    //   son:{
+    //     name: '小明'
+    //   },
+    //   mother:{
+    //     name: '老媽'
+    //   },
+    // }
+    // // 原始題目
+    // console.log(family.father.name);
+
+    // // 可選串連
+    // console.log(family?.father?.name);
+  </script>
+</body>
+</html>

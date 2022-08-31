@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-on 與縮寫</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-on 與縮寫</h1>
+
+
+  <div id="app">
+    <p>{{ count }}</p>
+
+    <!-- 沒有縮寫 -->
+    <button v-on:click="count += 1">count +1</button>
+    <button v-on:click="count -= 1">count - 1</button>
+
+    <!-- v-on 縮寫形式 -->
+    <p>{{ count2 }}</p>
+    <button @click="count2 += 1">count2 +1</button>
+    <button @click="count2 -= 1">count2 - 1</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+          count2: 1,
+        };
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

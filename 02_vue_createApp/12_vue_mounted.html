@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 基礎 - mounted</title>
+</head>
+<body>
+  <h1>Vue 基礎 - mounted</h1>
+
+  <div id="app">
+    <ul>
+      <li v-for="item in arrayData">{{ item.name }}</li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [],
+        }
+      },
+      methods: {
+        getData() {
+          setTimeout(() => {
+            this.arrayData = [
+              {
+                name: 'Ray',
+                price: 80,
+              },
+              {
+                name: 'John',
+                price: 90,
+              },
+              {
+                name: 'Mary',
+                price: 100,
+              }
+            ]
+          }, 5000)
+        }
+      },
+      // Vue 生命週期
+      // DOM 畫面完成渲染時會呼叫裡面的東西
+      mounted() {
+        console.log('mounted')
+        this.getData();
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

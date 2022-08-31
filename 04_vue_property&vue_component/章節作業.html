@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>章節小作業</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+  <h1>章節小作業</h1>
+
+  <p>作業目標：</p>
+
+  <p>1. 請替上一堂課程的作業做加強</p>
+  <p>2. 請增加景點搜尋功能，使用 computed 篩選製作</p>
+  <p>3. 當使用者點擊景點時，需加入歷史紀錄，當歷史紀錄超過十筆時，則移除一個，請善加利用 watch</p>
+  <p>4. 請將卡片區塊獨立做成一個元件，使用者可以點擊卡片把景點加入感興趣列表，卡片要善用 props 的觀念</p>
+
+  <hr>
+
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <input class="form-control mb-3" type="text" v-model="cacheSearch" placeholder="請輸入景點名稱">
+          <ul class="list-group">
+            <li class="list-group-item" v-for="item in filterSearch" :key="item.Id">
+              <label @click="cacheData = item">
+                <input type="radio" :value="item.Name" :checked="cacheData.Name === item.Name">
+                {{ item.Name }}
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <select v-model="cacheData" class="form-select mb-3">
+            <option value="">請選擇歷史資料</option>
+            <option v-for="(item, index) in browseLog" :value="item" :key="item.Id + index">{{ item.Name }}</option>
+          </select>
+          <vue-card :data="cacheData" @like-emit="likeFn" v-if="cacheData.Name"></vue-card>
+          <p class="sticky-top" v-else>請選擇景點</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <script type="module">
+    import vueCard from './章節作業.js';
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          cacheSearch: '',
+          cacheData: {},
+          arrayData: [],
+          browseLog: [],
+        }
+      },
+      components: {
+        vueCard
+      },
+      methods: {
+        getData() {
+          // 高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json
+          axios.get('https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json')
+            .then((res) => {
+              this.arrayData = res.data.result.records
+          })
+        },
+        likeFn(name) {
+          window.alert(`你已經將${name} 加入感興趣列表`);
+        }
+      },
+      computed: {
+        filterSearch() {
+          return this.arrayData.filter(item =>item.Name.match(this.cacheSearch))
+        }
+      },
+      watch: {
+        cacheData() {
+          if(this.browseLog.length < 10) {
+            this.browseLog.push(this.cacheData);
+          } else {
+            this.browseLog.shift();
+            this.browseLog.push(this.cacheData);
+          }
+        },
+      },
+      mounted() {
+        this.getData();
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

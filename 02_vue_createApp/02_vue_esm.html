@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 初始化 - ESM</title>
+  <!-- JSON 格式非常嚴格最後一筆結尾不可以有逗號 -->
+  <!-- importmap 就是一個 JSON -->
+  <!-- <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script> -->
+</head>
+<body>
+  <h1>Vue 初始化 - ESM</h1>
+
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <!-- ESM script 一定要加上 type="module" -->
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+    // importmap 方式要注意瀏覽器支援問題
+    // 可以看 Can I Use 的網站，例如 https://caniuse.com/importmap
+    // Can I Use 教學： https://israynotarray.com/other/20210523/2855778698/
+
+    // import { createApp } from 'vue';
+
+    const app = createApp({
+      data(){
+        return {
+          message: 'Hello Vue!',
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>

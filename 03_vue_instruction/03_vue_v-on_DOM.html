@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - DOM 事件</title>
+</head>
+<body>
+  <h1>Vue 指令 - DOM 事件</h1>
+
+  <div id="app">
+    <h3>原生 DOM 事件</h3>
+    <p>Q: 當沒有參數時，預設第一個會是什麼？</p>
+    <p>預設會是 DOM 的事件物件</p>
+    <div>
+      <button type="button" @click="onClick">點我</button>
+    </div>
+    <br>
+    <div>
+      <a href="#" @click.prevent="onClick">點我</a>
+    </div>
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+    <h4>當如果有參數時該怎麼辦？</h4>
+
+
+    <div>
+      <a href="#" @click.prevent="onLink('Ray', $event)">點我</a>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Vue 指令'
+        };
+      },
+      methods: {
+        onClick(event) {
+          console.log('onClick', event)
+        },
+        onLink(name, event) {
+          console.log('onLink', name, event)
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - this</title>
+</head>
+<body>
+  <h2>JavaScript 基礎 - this</h2>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+
+  <div id="app"></div>
+
+  <script>
+    // const newObj1 = {
+    //   data: '物件',
+    //   render() {
+    //     // Q2. 如何取得 data 的值並輸出
+    //     console.log(this.data);
+    //   },
+    //   init() {
+    //     // Q1. 請問如何在此觸發 render()
+    //     this.render();
+    //   }
+    // }
+    // newObj1.init();
+
+
+
+
+
+
+
+    // const Card = {
+    //   el: '#app',
+    //   template: /* html */`<div>
+    //     A simple primary alert—check it out!
+    //   </div>`,
+    //   render() {
+    //     // 如何取得本物件 el 屬性
+    //     const dom = document.querySelector(this.el);
+
+    //     // 如何取得本物件 template
+    //     dom.innerHTML = this.template;
+    //   }
+    // };
+    // Card.render();
+
+
+
+
+
+
+
+
+    // const newObj1 = {
+    //   someone: '物件',
+    //   callSomeone() {
+    //     console.log('callSomeone:', this.someone);
+    //   },
+    //   callMethods() {
+    //     // 如何讓 callSomeone 正常運作
+    //     const vm = this;
+    //     setTimeout(function () {
+    //       vm.callSomeone();
+    //     }, 100);
+    //   }
+    // }
+    // newObj1.callMethods();
+
+
+
+
+
+
+
+
+  
+    // const obj = {
+    //   name: '小明',
+    //   callSomeone() {
+    //     const vm = this;
+    //     setTimeout(function() {
+    //       // 如何帶出 小明 的值
+    //       console.log(vm.name);
+    //     }, 0);
+    //   }
+    // }
+    // obj.callSomeone();
+  </script>
+</body>
+</html>

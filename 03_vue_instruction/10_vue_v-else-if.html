@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-else-if</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-else-if</h1>
+
+  <div id="app">
+    <p v-if="text === 'Jack'">我是傑克, {{ text }}</p>
+    <p v-else-if="text === 'Tom'">我是湯姆, {{ text }}</p>
+    <p v-else-if="text === 'Ray'">我是雷, {{ text }}</p>
+    <p v-else>我沒有名字</p>
+
+    <button type="button" @click="text = 'Jack'">切換成傑克</button> ｜
+    <button type="button" @click="text = 'Tom'">切換成湯姆</button> ｜
+    <button type="button" @click="text = 'Ray'">切換成雷</button> ｜
+    <button type="button" @click="text = 'Mary'">切換成瑪麗</button> 
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: ''
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

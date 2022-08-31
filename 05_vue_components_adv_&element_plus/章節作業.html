@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章節小作業</title>
+    <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <!-- font-awesome：https://fontawesome.com/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  </head>
+  <style>
+    .bg-cover {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .py-1 {
+      padding: 16px 0px;
+    }
+
+    .el-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cursor {
+      cursor: pointer
+    }
+
+    .sticky-top {
+      position: sticky;
+      top: 0;
+    }
+  </style>
+
+  <body>
+    <h1>章節小作業</h1>
+
+    <p>作業目標：</p>
+    <p>1. 請串接 API 串接 API： https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json</p>
+    <p>2. 請使用 ElementPlus 製作，需使用到 container、layout、卡片，其中卡片要製作成元件</p>
+    <p>3. 使用者可以在右側看到景點</p>
+    <p>4. 使用者可以點擊卡片將景點加入到左側的感興趣列表</p>
+
+    <hr>
+
+    <div id="app">
+
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="//unpkg.com/element-plus"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+      const app = Vue.createApp({
+        data() {
+          return {
+            selectArea: [],
+            cacheData: [],
+          }
+        },
+        methods: {
+          getData() {
+            // 高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json
+            this.isLoading = true;
+            axios.get('https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json')
+              .then((res) => {
+                this.arrayData = res.data.result.records
+              })
+          },
+        },
+        mounted() {
+          this.getData()
+        }
+      })
+      app.use(ElementPlus);
+      app.mount('#app');
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElementPlus - Props 、Emit 、 Slot 與 ElementPlus 的關聯性</title>
+  <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  <!-- font-awesome：https://fontawesome.com/ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+
+  <div id="app">
+    <h2>ElementPlus 按鈕</h2>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          btnState: true,
+        }
+      },
+    })
+    app.use(ElementPlus)
+    app.mount('#app');
+  </script>
+</body>
+</html>

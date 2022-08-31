@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElementPlus - Element 基礎認識</title>
+  <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  <style>
+  .el-col.bg-light{
+    background-color:rgb(200, 196, 196);
+  }
+  
+  .el-col:nth-child(even){
+    background-color:rgba(249, 205, 205);
+  }
+
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .el-header {
+    background-color: #213D5B;
+    color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .el-main {
+    background-color: #18222C;
+    color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .el-aside {
+    background-color: #1D3043;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .el-footer {
+    background-color: #213D5B;
+    color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  </style>
+</head>
+<body>
+  <h1>ElementPlus - Element 基礎認識</h1>
+
+  <div id="app">
+    <!-- 開頭都是以 el-* 為主 -->
+
+    <h2>ElementPlus 容器</h2>
+    <h3>版型 1</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+    <h3>版型 2</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+    <h3>版型 3</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+        }
+      },
+    })
+    app.use(ElementPlus)
+    app.mount('#app');
+  </script>
+</body>
+</html>

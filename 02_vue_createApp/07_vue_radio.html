@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 雙向綁定</title>
+</head>
+<body>
+  <h1>Vue 雙向綁定</h1>
+
+  <div id="app">
+    <h2>單選按鈕</h2>
+    <div class="form-check">
+      <input v-model="radioText" type="radio" class="form-check-input" id="radio2" value="雞">
+      <label class="form-check-label" for="radio2">雞</label>
+    </div>
+    <div class="form-check">
+      <input v-model="radioText" type="radio" class="form-check-input" id="radio3" value="豬">
+      <label class="form-check-label" for="radio3">豬</label>
+    </div>
+    <div class="form-check">
+      <input v-model="radioText" type="radio" class="form-check-input" id="radio4" value="牛">
+      <label class="form-check-label" for="radio4">牛</label>
+    </div>
+    <p>您選擇了：{{ radioText }}</p>
+
+
+    <!-- for 非常重要，因為 for 跟使用者體驗會有關係 -->
+    <!-- for 對應的是 input 的 id，因此名稱需要相同 -->
+    <form action="">
+      <label for="email">帳號</label>
+      <input type="text" id="email">
+    </form>
+
+
+
+
+
+
+  <!-- Q: 如果 input 的 radio 不寫 value，當我點以下程式碼時，這時候 radioText 會出現什麼？ -->
+
+    <!-- <div class="form-check">
+      <input type="radio" class="form-check-input" id="radio4" v-model="radioText">
+      <label class="form-check-label" for="radio4">牛</label>
+    </div>
+    {{ radioText }} -->
+
+    <!-- 1. on => v
+    2. 牛 -->
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+    
+    const app = createApp({
+      data() {
+        return {
+          radioText: '雞',
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

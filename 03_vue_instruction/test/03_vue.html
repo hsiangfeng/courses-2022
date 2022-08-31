@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 測驗</title>
+  <style>
+    .box {
+      background-color: #00cc99;
+      border: 1px solid #000000;
+      width: 80px;
+      height: 80px;
+    }
+    .box {
+      transition: all .5s;
+    }
+    .box.rotate {
+      transform: rotate(45deg)
+    }
+    .bg-danger {
+      background-color: red;
+    }
+    </style>
+</head>
+<body>
+  <h1>Vue 測驗</h1>
+
+  <div id="app">
+    <h3>Q1:請試著將 v-bind 改成縮寫</h3>
+    <img :src="bgData.imgUrl" :alt="bgData.name"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Q2:請問該如何透過輸入 input 欄位就將圖片網址傳入 img 標籤？</h3>
+    <div>
+      <img :src="imgUrl" alt="這是一張圖片">
+    </div>
+    <input type="text" v-model="imgUrl">
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+    
+  
+
+    <h3>Q3: 請將 .box 修改成動態傳入 class 方式，當使用者點擊「旋轉物件」時 .box 會被賦予 rotate 樣式</h3>
+    <div 
+      class="box"
+      :class= "{
+        'rotate': isTransform,
+        'bg-danger': boxColor
+      }"
+ ></div>
+    <br>
+    <button class="btn btn-outline-primary" @click="change('isTransform')">旋轉物件</button>
+
+    <h3>Q4: 同上，當使用者點擊「切換色彩」時 .box 會被賦予 bg-danger 樣式</h3>
+    <button class="btn btn-outline-primary ms-1" @click="change('boxColor')">切換色彩</button>
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Q4: 請打開下方註解並試著讓以下程式碼正確運作</h3>
+
+    <p :style="{ backgroundColor: 'red', fontSize: '20px', color: 'white' }">這是一句話</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          imgUrl: '',
+          bgData: {
+            imgUrl: 'https://fakeimg.pl/250x100/',
+            name: '這是一張圖片'
+          },
+          isTransform: false,
+          boxColor: false,
+        };
+      },
+      methods: {
+        change(key) {
+          this[key] = !this[key];
+        }
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

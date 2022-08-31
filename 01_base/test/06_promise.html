@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - 非同步</title>
+</head>
+<body>
+  <h2>JavaScript 基礎 - 非同步</h2>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+  <script>
+    // Q: 請讓下方程式碼依照順序執行 如：取得遠端資料成功....、a、b、c
+    // setTimeout(() => {
+    //   console.log('取得遠端資料成功....');
+    // }, 0);
+    // console.log('a');
+    // console.log('b');
+    // console.log('c');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const promiseSetTimeout = (s = 0) => {
+      const status = s || getRandomInt(2);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (status) {
+            resolve('promiseSetTimeout 成功')
+          } else {
+            reject(new Error('promiseSetTimeout 失敗'))
+          }
+        }, 10);
+      })
+    }
+    // Q1: 請完成本段成功及失敗的串接
+    // #1 成功用哪一個方法串接 then +1 catch +2
+    // promiseSetTimeout(1)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    // #2 失敗用哪一個方法串接 then +1 catch +2
+    // promiseSetTimeout(0)
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+
+
+
+
+
+
+
+
+    // Q2: 如何串接多個成功方法
+    // promiseSetTimeout(1)
+    //   .then(res => {
+    //     console.log(res);
+    //     return promiseSetTimeout(1)
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     return promiseSetTimeout(1)
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     return promiseSetTimeout(1)
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+  </script>
+</body>
+</html>

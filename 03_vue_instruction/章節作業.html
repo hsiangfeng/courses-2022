@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>章節小作業</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+  <h1>章節小作業</h1>
+
+  <p>作業目標：</p>
+
+  <p>1. 請使用 axios 串接高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json</p>
+  <p>2. 當使用者點擊景點名稱時，會將資料帶入到右側並呈現結果</p>
+  <p>3. 初始化畫面若使用者沒有點擊景點請出現「請選擇景點」的文字提示</p>
+  <p>4. 右側需正確呈現景點圖片與 Google 地圖</p>
+
+
+
+
+
+
+  <hr>
+
+
+
+
+
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li v-for="item in arrayData" class="list-group-item" :key="item.Id">
+              <label @click="cacheData = item">
+                <input type="radio" :value="item.Name" :checked="cacheData.Id === item.Id">
+                  {{ item.Name }}
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div v-if="cacheData.Id" class="card sticky-top">
+            <div class="card-body">
+              <img :src="cacheData.Picture1" class="card-img-top" :alt="cacheData.Name">
+              <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                      :src='`https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=${cacheData.Py},${cacheData.Px}(${cacheData.Name})&z=16&output=embed`'></iframe>
+            </div>
+          </div>
+          <p v-else class="sticky-top">請選擇景點</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          cacheData: {},
+          arrayData: [],
+        }
+      },
+      mounted() {
+        // 高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json
+        axios.get('https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json')
+          .then((res) =>{
+            const { records } = res.data.result;
+            this.arrayData = records;
+          })
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

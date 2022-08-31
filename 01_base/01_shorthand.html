@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - 語法糖</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - 語法糖</h1>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+  <script>
+    // 1.物件
+    // 1-1 物件內的函式
+    // 物件實字
+    // const obj = {
+    //   myName: '物件',
+    //   fn() { // 傳統函式縮寫
+    //     return this.myName;
+    //   },
+    // }
+    // console.log(obj.fn());
+
+
+
+
+
+
+
+
+    // 1-2 物件內的變數
+    // const myName = 'Ray';
+
+    // const people = {
+    //   // 重點：名字只要與物件內的 key 相同，就可以縮寫
+    //   myName
+    // };
+    // console.log(people);
+
+
+
+
+
+
+
+
+
+    // 2. 展開運算子
+    // 2-1 合併陣列
+    // const arr1 = ['小明', '杰倫', '阿姨'];
+    // const arr2 = ['老媽', '老爸'];
+    // // const arr3 = arr1.concat(arr2); // concat 合併陣列
+    // const arr3 = [...arr1, ...arr2];
+    // console.log(arr3);
+
+
+
+
+
+
+
+
+
+    // 2-2 物件擴展
+    // const methods = {
+    //   fn1() {
+    //     console.log(1);
+    //   },
+    //   fn2() {
+    //     console.log(2);
+    //   },
+    // }
+
+    // const obj = {
+    //   myName: '小明',
+    //   age: 18,
+    //   // 為什麼不能用縮寫形式
+    //   // 核心重點是什麼？ 物件名稱必須與物件的 key 同名
+    //   ...methods
+    // };
+    // console.log(obj);
+    // obj.fn1();
+    // obj.fn2();
+
+
+
+
+
+
+
+
+
+    // 3. 解構運算子
+    // 3-1 物件解構
+    const people = {
+      casper: {
+        name: '卡斯伯',
+        like: '鍋燒意麵',
+        price: 95
+      },
+      ray: {
+        name: '瑞',
+        like: '炒麵',
+        price: 80
+      },
+      ming: {
+        name: '小明',
+        like: '黑胡椒燴飯',
+        price: 120
+      },
+    };
+    // 請取出 casper, ray 物件作為單一變數
+    // 早期開發寫法
+    // const casper = people.casper;
+    // const ray = people.ray;
+    // const ming = people.ming;
+    // console.log('casper', casper);
+    // console.log('ray', ray);
+    // console.log('ming', ming);
+
+    // 物件解構寫法
+    // const { casper, ray, ming } = people;
+    // console.log('casper', casper);
+    // console.log('ray', ray);
+    // console.log('ming', ming);
+
+
+
+
+
+
+
+
+
+    // 4. 可選串連
+    const obj = {
+      name: 'Ray',
+      dog: {
+        name: 'judy',
+      },
+    }
+    // console.log(obj.cat.name);
+    // console.log('Hello')
+    // 早期開發方式
+    // if(typeof obj.cat === 'object') {
+    //   console.log(obj.cat.name);
+    // }
+    // console.log('Hello')
+
+
+
+
+    // 可選串連
+    // console.log(obj?.cat?.name);
+    // console.log('Hello');
+
+
+
+
+
+
+
+    // 5. 箭頭函式
+    // 不能算是語法糖的一種
+    // 
+    // const dog = [
+    //   {
+    //     name: 'judy',
+    //   },
+    //   {
+    //     name: 'tom',
+    //   }
+    // ]
+    // // for loop
+    // dog.forEach((item) => {
+    //   console.log(item.name)
+    // });
+
+
+
+
+  </script>
+</body>
+</html>

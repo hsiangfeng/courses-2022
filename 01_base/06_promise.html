@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - 非同步</title>
+</head>
+<body>
+  <h2>JavaScript 基礎 - 非同步</h2>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+  <script>
+    // function getData() {
+    //   setTimeout(() => {
+    //     console.log('a：取得遠端資料....');
+    //   }, 1000);
+    // }
+    // function fn() {
+    //   console.log('start');
+    //   getData(); // 模擬 AJAX 的過程
+    //   console.log('b');
+    //   console.log('c');
+    // }
+    // fn();
+
+
+    // function getData() {
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve('a：取得遠端資料....')
+    //     }, 1000);
+    //   })
+    // }
+
+    // function fn() {
+    //   console.log('start');
+    //   getData()
+    //     .then((res) => {
+    //       console.log(res);
+    //       console.log('b');
+    //       console.log('c');
+    //     })
+    // }
+    // fn();
+
+
+
+
+    function getData(status) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if(status) {
+            resolve('a：取得遠端資料....')
+          } else {
+            reject('a: 取得遠端資料失敗！');
+          }
+        }, 1000);
+      })
+    }
+
+    // 如果有加上其他 then，必定會執行
+    // 如果要將其他值（AJAX）往下一個 then 傳遞就要使用 return
+    // return 並不能跳出 Promise
+    getData(true)
+      .then((res) => {
+        console.log('res1', res);
+        console.log('b1');
+        console.log('c1');
+        return getData(true);
+      })
+      .then((res) => {
+        if(true){
+          return getData(true);
+        }
+        console.log('res2', res);
+        console.log('b2');
+        console.log('c2');
+      })
+      .then((res) => {
+        console.log('res3', res);
+        console.log('b3');
+        console.log('c3');
+      })
+      .catch((err) => {
+        window.alert(err);
+      })
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

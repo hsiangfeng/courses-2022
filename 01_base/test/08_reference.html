@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 基礎 - reference</title>
+  </head>
+
+  <body>
+    <h1>JavaScript 基礎 - reference</h1>
+    <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+    <script>
+      // Q1
+      // const person1 = {
+      //   name: '小明',
+      // }
+
+      // const person2 = person1;
+      // person2.name = '小美';
+
+      // console.log(person1.name); // 值為 1. 小明 or 2. 小美
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Q2
+      // const person1 = {
+      //   name: '小明',
+      // }
+
+      // function fn(item) {
+      //   item.name = '小美';
+      // }
+
+      // fn(person1);
+      // console.log(person1.name); // 值為 1. 小明 or 2.小美
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Q3
+      // const person1 = {
+      //   name: '小明',
+      // }
+
+      // function fn(item) {
+      //   item = {};
+      //   item.name = '小美';
+      // }
+
+      // fn(person1);
+      // console.log(person1.name); // 值為 1. 小明 or  2. 小美
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Q4
+      // let person1 = {
+      //   name: '小明',
+      // }
+      // let person2;
+
+      // function fn(item) {
+      //   person2 = { ...person1 }; // 此段如何修改，可以避免最後的值變成小美？
+      //   person2.name = '小美';
+      // }
+
+      // fn(person1);
+      // console.log(person1.name); // 值必須為 小明
+
+
+
+
+
+
+
+
+
+
+
+      // Q5
+      // let person1 = {
+      //   name: '小明',
+      //   innerObj: {
+      //     name: '小智',
+      //   }
+      // }
+      // let person2
+
+      // function fn(item) {
+      //   // 深層拷貝
+      //   person2 = JSON.parse(JSON.stringify(person1)); // 此段如何修改，可以避免最後的值變成小美？
+      //   person2.innerObj.name = '小美';
+      // }
+
+      // fn(person1);
+      // console.log(person1.innerObj.name); // 值必須為 小智
+    </script>
+  </body>
+
+</html>

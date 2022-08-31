@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 基礎 - mounted</title>
+</head>
+<body>
+  <h1>Vue 基礎 - mounted</h1>
+
+  <div id="app">
+    <button @click="getData">點我取得資料</button>
+    <button @click="clearData">清除資料</button>
+    <ul>
+      <li v-for="(item, key) in arrayData" :key="key">
+        {{ item.Zone }} - {{ item.Name }}
+      </li>
+    </ul>
+    
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [],
+        }
+      },
+      methods: {
+        // Q: 請問當我觸發 clearData 之後 getData 可以正常運作嗎？
+        // +1 不行
+        // +2 可以
+        clearData()  {
+          this.arrayData = [];
+          // 第一種方式將當前 this 存下來
+          // const vm = this; // ViewModel 的縮寫
+          // setTimeout(function() {
+          //   // console.log('this', vm)
+          //   vm.getData();
+          // },5000);
+
+          // 第二種方式使用箭頭函式
+          setTimeout(() => {
+            // console.log('this', this)
+            this.getData();
+          },5000);
+        },
+        getData() {
+          const apiUrl = 'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json';
+          axios.get(apiUrl)
+            .then((res) => {
+              const { records } = res.data.result;
+              this.arrayData = records;
+            })
+        }
+      },
+      mounted() {
+        this.getData();
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

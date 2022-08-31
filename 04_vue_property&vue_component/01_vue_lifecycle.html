@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 生命週期</title>
+</head>
+<body>
+  <h1>Vue 生命週期</h1>
+
+  <p>額外補充生命週期介紹：<a href="https://cn.vuejs.org/guide/essentials/lifecycle.html">生命週期</a></p>
+
+  <div id="app">
+    <p id="text">{{ text }}</p>
+  </div>
+
+  
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+      created() {
+        // 資料掛載完成
+        // AJAX
+        console.log('Created');
+        // 什麼是資料掛載完成階段
+        console.log('Created this', this.text);
+
+        // 為什麼不要在 Created 階段取得 DOM
+        const textDom = document.getElementById('text');
+        console.log('Created DOM：',textDom);
+      },
+      mounted() {
+        // DOM 渲染完成階段
+        console.log('Mounted');
+
+        // 資料早就掛載完成了
+        console.log('Mounted', this.text);
+
+        // 什麼是 DOM 渲染完畢階段
+        const textDom = document.getElementById('text');
+        console.log('Mounted DOM:', textDom);
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - 為什麼要補上 key</title>
+</head>
+<body>
+  <h1>Vue 指令 - 為什麼要補上 key</h1>
+
+  <div id="app">
+    <h1>沒有 key</h1>
+
+    <ul>
+      <li v-for="(item, index) in arrayData">
+        {{ index }} - {{ item.name }} - {{ item.price }} - <input type="text">
+      </li>
+    </ul>
+
+
+
+
+
+
+
+    <hr>
+    <h1>有 key</h1>
+
+    <ul>
+      <li v-for="(item, index) in arrayData" :key="item.name">
+        {{ index }} - {{ item.name }} - {{ item.price }} - <input type="text">
+      </li>
+    </ul>
+
+    <button type="button" @click="reverseArray">反轉陣列</button>
+
+
+    <!-- 非必要狀況下，請盡可能不要使用索引當作 key，盡可能使用唯一值 -->
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [
+            {
+              id: '',
+              name: 'Ray',
+              price: 80,
+            },
+            {
+              name: 'John',
+              price: 90,
+            },
+            {
+              name: 'Mary',
+              price: 100,
+            }
+          ],
+        };
+      },
+      methods: {
+        reverseArray() {
+          this.arrayData.reverse();
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

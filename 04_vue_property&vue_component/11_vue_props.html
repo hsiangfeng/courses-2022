@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 元件 - props</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+      img {
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Vue 元件 - props</h1>
+
+    <div id="app">
+      <img src="https://images.unsplash.com/photo-1605784401368-5af1d9d6c4dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80">
+
+
+      <p>props 口訣：前內、後外</p>
+      <p>props 是單向數據流，因此不可以修改 props</p>
+      <h2>靜態傳入</h2>
+      <photo1 url="https://images.unsplash.com/photo-1605784401368-5af1d9d6c4dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"></photo1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h3>動態傳入</h3>
+      <photo1 :url="imgUrl"></photo1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h3>單向數據流</h3>
+      <photo2 :url="imgUrl"></photo2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h3>命名限制</h3>
+      <photo3 :super-url="imgUrl"></photo3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            imgUrl: 'https://images.unsplash.com/photo-1605784401368-5af1d9d6c4dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'
+          }
+        },
+      });
+
+      app.component('photo1', {
+        props: ['url'],
+        template: /* html */`
+          <img :src="url">
+        `,
+      });
+
+      app.component('photo2', {
+        props: ['url'],
+        template: /* html */`
+          <img :src="url">
+          <div>
+            <input type="text"  v-model="url"/>
+            <p>網址來源：{{ url }}</p>
+          </div>
+        `,
+      });
+
+      app.component('photo3', {
+        props: ['superUrl'],
+        template: /* html */`
+          <img :src="superUrl">
+        `,
+      });
+      app.mount('#app');
+    </script>
+  </body>
+
+</html>

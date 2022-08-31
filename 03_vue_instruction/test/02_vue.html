@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 測驗</title>
+</head>
+<body>
+  <h1>Vue 測驗</h1>
+
+  <div id="app">
+    <h3>Q1:請問如何在使用者離開輸入框時就觸發 sayHi 事件？</h3>
+    <h4>input blur 事件</h4>
+    <input type="text" @blur="sayHi">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Q2: 表單該如何觸發事件？</h3>
+    <form @submit.prevent="submitForm">
+      <input type="text" v-model="from.name">
+      <button type="submit">送出表單</button>
+    </form>
+    <hr>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+          from: {
+            name: '',
+          }
+        };
+      },
+      methods: {
+        submitForm() {
+          console.log('表單已送出', `name 為 ${this.from.name}`)
+        },
+        sayHi() {
+          console.log('Hello！')
+        }
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - axios</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - axios</h1>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // Q1.請使用 axios 撰寫 Get API
+    // const url = 'https://randomuser.me/api/';
+    // function getData() {
+    //   axios.get(url)
+    //     .then((res) => {
+    //       const { data } = res;
+    //       console.log(data);
+    //     })
+    // }
+    // getData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Q2.請將下方 axios 整合成一個鍊式寫法
+    // const url = 'https://randomuser.me/api/';
+    // axios.get(url)
+    //   .then(res => {
+    //     console.log(res);
+    //     return axios.get(url)
+    //   })
+    //   .then(res => {
+    //     console.log(res);
+    //     return axios.get(url)
+    //   })
+    //   .then(res => {
+    //     console.log(res);
+    //   });
+
+
+
+
+
+
+
+
+
+
+
+    // 3. 請讓下方 AJAX 失敗走向 catch
+    const url = 'https://randomuser.me/api/qwdqwd';
+    axios.get(url)
+      .then(res => {
+        console.log('res', res);
+      })
+      .catch((err) => {
+        console.log(`資料取得失敗！ERROR：${err}`)
+        console.dir(err); // 看更詳細
+        console.log('message', err.response.data);
+      })
+  </script>
+</body>
+</html>

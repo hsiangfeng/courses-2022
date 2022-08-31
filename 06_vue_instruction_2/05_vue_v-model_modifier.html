@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 進階 - v-model 修飾符</title>
+</head>
+<body>
+  <h1>Vue 進階 - v-model 修飾符</h1>
+
+  <div id="app">
+    <h2>.lazy</h2>
+    <h3>沒有 .lazy</h3>
+
+
+
+
+
+
+    <h3>有 .lazy</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+    <h3>沒有 .number</h3>
+    
+
+
+    <h3>有 .number</h3>
+    
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+    建議搭配 Vue DevTools 才看得出來
+    <h3>沒有 .trim</h3>
+    
+
+
+    <h3>有 .trim</h3>
+    
+
+
+
+    <br><br><br><br><br>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - 常見的陣列方法</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - 常見的陣列方法</h1>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+  <script>
+    // 陣列方法
+    // 1.查看陣列長度
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // console.log(`目前陣列裡面有 ${data.length} 筆資料`);
+    // console.log(data.length ? '目前有資料' : '目前沒有資料');
+
+
+
+
+
+
+
+    // 2.新增一筆資料
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // // console.log 只有你在展開的時候才會真的顯示裡面資料
+    // console.log('新增前', data);
+    // data.push({
+    //   name: 'Tom',
+    //   price: 110,
+    // });
+    // console.log('新增後', data);
+
+
+
+
+
+
+
+    // 3.反轉陣列
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // data.reverse();
+    // console.log(data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 3-1.避免修改原始資料
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // JSON.parse & JSON.stringify 通常會一起使用
+  
+    // JSON.stringify => String
+    // console.log(JSON.stringify(data));
+
+    // JSON.parse => 轉回 JavaScript 可以讀懂的東西
+    // console.log(JSON.parse(JSON.stringify(data)));
+  
+    // 運作過程
+    // JS Object => String => JS Object
+  
+    // const newData = JSON.parse(JSON.stringify(data));
+    // newData.reverse();
+  
+    // console.log('newData', newData)
+    // console.log('data', data);
+
+
+
+
+
+
+
+
+
+
+    // 4.請使用傳統 for 迴圈輸出名字
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // for (let i = 0; i < data.length; i++) {
+    //   const element = data[i];
+    //   console.log(element.name)
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 5.請使用 forEach 輸出名字
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+
+    // for (let i = 0; i < data.length; i++) {
+    //   const element = data[i];
+    //   console.log(element.name)
+    // }
+
+    // data.forEach((item, index) => {
+    //   console.log(item.name)
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 6. 請使用 filter 篩選出 price 大於等於 90 的資料
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+
+    // 縮寫核心重點
+    // 程式碼只有一行的時候
+    // 縮寫前 +1
+    // const filterData = data.filter((item) => {
+    //   return item.price >= 90;
+    // });
+    // 縮寫後 +2
+    // const filterData = data.filter((item) => item.price >= 90);
+    // console.log(filterData);
+
+    // 為什麼掌握 forEach 就可以學會全部？
+    // const filterData2 = [];
+    // data.forEach((item) => {
+    //   if(item.price >= 90) {
+    //     filterData2.push(item)
+    //   }
+    // })
+    // console.log(filterData2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 7. 請使用 map 產生一個新陣列並將 price 加 10
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 20,
+    //   },
+    //   {
+    //     name: 'Hack',
+    //     price: 60,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+
+    // 縮寫前
+    // const result = data.map((item) => {
+    //   return {
+    //     myName: item.name,
+    //     myPrice: item.price + 10
+    //   }
+    // })
+
+    // 縮寫後
+    // const result = data.map((item) => ({
+    //   myName: item.name,
+    //   myPrice: item.price + 10
+    // }));
+    // console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+    // 其他陣列操作方法
+    // 網址：https://israynotarray.com/javascript/20190421/1216566123/
+  </script>
+</body>
+</html>

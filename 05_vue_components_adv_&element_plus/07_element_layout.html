@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElementPlus - Element 基礎認識</title>
+  <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  <style>
+  .el-col.bg-light{
+    background-color:rgb(200, 196, 196);
+  }
+  
+  .el-col:nth-child(even){
+    background-color:rgba(249, 205, 205);
+  }
+
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  </style>
+</head>
+<body>
+  <h1>ElementPlus - Element 格線系統</h1>
+
+  <div id="app">
+    <!-- 開頭都是以 el-* 為主 -->
+    <h2>ElementPlus 格線系統</h2>
+    <h3>1 欄位</h3>
+    
+
+
+
+
+    <hr>
+
+    <h3>2 欄位</h3>
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+    <h3>3 欄位</h3>
+    
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+    <h3>4 欄位</h3>
+    
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+    <h3>響應式設計</h3>
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+    <h3>Q: 請試著完成以下挑戰</h3>
+    <p>768px 以下時呈現單欄</p>
+    <p>768px 以上呈現兩欄</p>
+    <p>1200px 以上呈現四欄</p>
+    
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+        }
+      },
+    })
+    app.use(ElementPlus)
+    app.mount('#app');
+  </script>
+</body>
+</html>

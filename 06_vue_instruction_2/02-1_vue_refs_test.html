@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 進階指令- 選取 DOM 的方式</title>
+</head>
+<body>
+  <h1>Vue 進階指令- 選取 DOM 的方式</h1>
+
+  <div id="app">
+    <p ref="p">{{ text }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+      mounted() {
+        // Q: 請問該如何選取 p 元素？
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElementPlus - Element 基礎認識</title>
+    <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  </head>
+
+  <body>
+    <h1>ElementPlus - Element 讀取</h1>
+
+    <div id="app">
+
+      <h2>Element 讀取 - 基礎讀取</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2>Element 讀取 - 自訂讀取文字</h2>
+
+
+
+
+
+
+
+      <hr>
+
+
+
+
+
+
+
+      
+
+
+
+
+
+      <h2>Element 讀取 - 最適合的場景</h2>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="//unpkg.com/element-plus"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            users: [],
+            data: [
+              {
+                name: 'Ray',
+                price: 20,
+              },
+              {
+                name: 'Hack',
+                price: 60,
+              },
+              {
+                name: 'John',
+                price: 90,
+              },
+              {
+                name: 'Mary',
+                price: 100,
+              }
+            ],
+            isLoading: true,
+          }
+        },
+        methods: {
+          getData() {
+            this.isLoading = true;
+            const apiUrl = 'https://randomuser.me/api/?results=10'
+            axios.get(apiUrl)
+              .then((res) => {
+                const { results } = res.data;
+                this.users = results;
+                this.isLoading = false;
+              })
+          },
+          toggleLoading() {
+            this.isLoading = true;
+            setTimeout(() => {
+              this.isLoading = false
+            }, 3000)
+          },
+        },
+        mounted() {
+          this.getData();
+        }
+      })
+      app.use(ElementPlus)
+      app.mount('#app');
+    </script>
+  </body>
+
+</html>

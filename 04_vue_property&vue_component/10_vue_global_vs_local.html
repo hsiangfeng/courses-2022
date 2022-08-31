@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 元件 - 全域註冊與區域註冊差異</title>
+</head>
+<body>
+  <h1>Vue 元件 - 全域註冊與區域註冊差異</h1>
+
+  <div id="app">
+    <p>{{ text }}</p>
+    <my-component1></my-component1>
+    <my-component2></my-component2>
+    <!-- <my-component-global></my-component-global> -->
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <script type="module">
+    import globalEsm from './10_global.js'
+    import myComponent1 from './10_myComponent1.js';
+    import myComponent2 from './10_myComponent2.js';
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+      components: {
+        myComponent1,
+        myComponent2,
+      }
+    })
+    app.component('my-component-global', globalEsm);
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-on 更多</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-on 更多事件</h1>
+
+  <div id="app">
+    <h3>事件觸發</h3>
+    <p>{{ count }}</p>
+    <button @click="count += 1">點我 +1 </button>
+    <div>
+      <button @click="sayHi('Ray')">點我觸發事件</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+    <h3>原生 DOM 事件*</h3>
+    <h4>input - input 事件</h4>
+    <p>如何取得 event 事件物件(沒有帶入參數)</p>
+    <input type="text" @input="onInput">
+    <a href="#" @click.prevent="onLink">連結</a>
+    <p>如何取得 event 事件物件(有帶入參數)</p>
+    <input type="text" @input="onInput($event, 'Ray')">
+    <a href="#" @click.prevent="onLink($event, 'Ray')">連結</a>
+    
+
+
+
+
+
+    <h4>input - focus 事件</h4>
+    <!-- <input type="text" @focus="sayHi('focus')"> -->
+
+
+
+
+
+
+  
+
+    <h4>input - blur 事件</h4>
+    <input type="text" @blur="sayHi('Blur')">
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+    <h4>form submit 事件</h4>
+
+
+   <form action="google" @submit.prevent="onSubmit">
+    <input type="text" v-model="from.name">
+    <!-- button 不寫 type，在 form 裡面預設是 type="submit" -->
+    <button type="submit">點我</button>
+    <button type="reset">點我</button>
+    <button>點我</button>
+   </form>
+   <button type="button">點我</button>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+          from: {
+            name: '',
+          }
+        };
+      },
+      methods: {
+        sayHi(item) {
+          alert(`Hello ${item}`);
+        },
+        onInput(name, event) {
+          // 如果觸發事件時，沒有傳入事件，則會帶入觸發的「事件物件」，如果有參數帶入的話則可以使用 $event
+          console.log('onInput', name , event)
+        },
+        onLink(event, name) {
+          console.log('onLink', event, name);
+        },
+        onSubmit() {
+          console.log('onSubmit', this.from);
+        }
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

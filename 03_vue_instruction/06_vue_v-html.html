@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-html</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-html</h1>
+
+  <div id="app">
+
+
+    <p>{{ message }}</p>
+
+
+
+
+
+
+
+    <hr>
+  
+
+
+
+
+
+
+
+
+    <h3>v-text</h3>
+    <p v-text="message"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+    <h3>v-html</h3>
+    <!-- 使用者使用 editor 新增資料給後端 -->
+    <p v-html="message"></p>
+    <p v-html="imgHTML"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><a href="https://cn.vuejs.org/api/built-in-directives.html#v-html">v-html 注意事項</a></p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: '<h1>Hello Vue！</h1>',
+          imgHTML: '<img src="https://fakeimg.pl/300/">'
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

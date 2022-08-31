@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 進階指令 - 使用 ref 觸發 focus</title>
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+</head>
+<body>
+  <h1>Vue 進階指令 - 使用 ref 觸發 focus</h1>
+
+  <div id="app">
+    
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+      methods: {
+      },
+    })
+    app.use(ElementPlus);
+    app.mount('#app');
+  </script>
+</body>
+</html>

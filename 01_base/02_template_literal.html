@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - ES6 樣板字面值</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - ES6 樣板字面值</h1>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+  <script>
+    // 1.改成樣板字面值
+    // const myName = 'Ray';
+    // const a = 2020;
+    // // 原始題目
+    // // const hello = 'Hello, ' + myName + '今天天氣真好！今年是' + a + '年';
+    // // 答案
+    // const hello = `Hello ${myName} 今天天氣真好！今年是 ${a} 年`;
+    // console.log(hello);
+
+
+
+
+
+
+    // 2.進階用法
+    function sum(a, b) {
+      return a + b;
+    }
+    // 加入運算結果
+    // 原始題目
+    // console.log('3 + 4 數字總和為 ' + sum(4, 3));
+    // 答案
+    // console.log(`3 + 4 數字總和為 ${sum(4, 3)}`);
+
+
+
+
+
+
+    // 判斷結果
+    console.log('此結果超過 7 || 此結果未達 7');
+
+    // 答案
+    console.log(`此結果 ${sum(4, 3) > 7 ? '超過 7' : '未達 7'}`)
+  </script>
+</body>
+</html>

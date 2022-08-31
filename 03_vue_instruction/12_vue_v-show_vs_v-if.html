@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-show vs v-if</title>
+  <style>
+    .box {
+      background-color: red;
+      color: white;
+      width: 100px;
+      height: 100px;
+      border: 5px solid black;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .d-flex {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vue 指令 - v-show vs v-if</h1>
+
+  <div id="app">
+    <!-- 請觀看打開網頁開發者工具觀看 -->
+    <button type="button" @click="status = !status">切換狀態</button>
+    <hr>
+    <h4>顯示/隱藏</h4>
+    <div class="d-flex">
+      <div id="showId" v-show="status" class="box">v-show</div>
+      <div id="domId" v-if="status" class="box">v-if</div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          status: true,
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

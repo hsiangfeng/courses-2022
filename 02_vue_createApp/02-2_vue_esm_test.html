@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 初始化 - ESM</title>
+  <!-- 請注意 importmap 的支援性問題 -->
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Vue 初始化 - ESM</h1>
+
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <!-- Q: 請修正底下程式碼，使其可以正常運作 -->
+  <script type="module">
+    import { createApp } from 'vue';
+
+    const app = createApp({
+      data(){
+        return {
+          message: 'Hello Vue!',
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>

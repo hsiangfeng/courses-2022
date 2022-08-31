@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-for</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-for</h1>
+
+  <div id="app">
+    <h3>陣列迴圈</h3>
+    <!-- arrayData 組合一個字串渲染到畫面上 -->
+    <ul>
+      <li v-for="(item, index) in arrayData">
+        {{ index + 1 }} - {{ item.name }} 身上有 {{ item.price }}$
+      </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>物件迴圈</h3>
+    <ul>
+      <li v-for="(item, key) in productsObj">
+        {{ key }} - 早餐我吃 {{ item.name }}，價錢是 {{ item.price }}$
+      </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+    <h3>純數值迴圈</h3>
+    <ul>
+      <li v-for="num in 5">
+        {{ num }}
+      </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [
+            {
+              name: 'Ray',
+              price: 80,
+            },
+            {
+              name: 'John',
+              price: 90,
+            },
+            {
+              name: 'Mary',
+              price: 100,
+            }
+          ],
+          productsObj: {
+            chineseOmelette: {
+              name: '蛋餅',
+              price: 30,
+              vegan: false
+            },
+            riceBall: {
+              name: '飯糰',
+              price: 35,
+              vegan: false
+            },
+            soupDumpling: {
+              name: '小籠包',
+              price: 60,
+              vegan: false
+            },
+            radishCake: {
+              name: '蘿蔔糕',
+              price: 30,
+              vegan: true
+            }
+          },
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

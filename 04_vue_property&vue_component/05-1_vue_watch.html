@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 方法 - watch</title>
+</head>
+<body>
+  <h1>Vue 方法 - watch</h1>
+
+  <div id="app">
+    <h3>物件</h3>
+    <p>num1：{{ obj.num1 }}</p>
+    <button type="button" @click="obj.num1 +=1">點我就 +1</button>
+    <button type="button" @click="obj.num1 -=1">點我就 -1</button>
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          obj: {
+            num1: 0,
+          }
+        }
+      },
+      watch: {
+        'obj.num1': function(newValue, oldValue) {
+          console.log('newValue', newValue, 'oldValue', oldValue);
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

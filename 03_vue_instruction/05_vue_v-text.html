@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-text</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-text</h1>
+
+  <div id="app">
+    <h3>字串 v-text 與 <code v-pre>{{}}</code> (Mustache)</h3>
+
+    <p>{{ message }}</p>
+
+    <!-- 需注意若裡面有其他東西，是會被覆蓋的。 -->
+    <p v-text="message">這是一段話</p>
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

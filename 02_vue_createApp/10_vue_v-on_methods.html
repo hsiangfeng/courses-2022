@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - 觸發 methods</title>
+</head>
+<body>
+  <h1>Vue 指令 - 觸發 methods</h1>
+
+  <div id="app">
+    
+    <p>{{ text }}</p>
+    <div>
+      <button @click="sayHi('Ray')">點我打招呼</button>
+    </div>
+    <div>
+      <button @click="fn">點我觸發事件</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Vue 指令'
+        };
+      },
+      methods: {
+        sayHi(name = 'Tom') {
+          window.alert(`Hello ${name}！今天天氣真好！`);
+        },
+        fn() {
+          console.log('this:', this.text);
+          this.sayHi();
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

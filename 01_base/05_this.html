@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - this</title>
+</head>
+<body>
+  <h2>JavaScript 基礎 - this</h2>
+  <p>請觀看打開網頁開發者工具觀看 console 結果</p>
+
+  <script>
+    // 核心重點兼口訣：this 的指向源自於你怎麼呼叫它
+    // const obj = {
+    //   myName: 'Ray',
+    //   fn() {
+    //     console.log('name：', this.myName);
+    //   },
+    // };
+    // 1: Ray 2:undefined
+    // obj.fn(); // 物件下呼叫函式
+    // const fn = obj.fn;
+    // Q: 此時 console.log 會出現什麼？
+    // 1: Ray 2:undefined
+    // fn(); // 直接呼叫函式
+
+
+
+
+
+
+
+
+
+    // const obj = {
+    //   name: 'Ray',
+    //   fn() {
+    //     console.log('name：', this.name);
+    //   },
+    //   fn2() {
+    //     // 箭頭它並不屬於語法糖
+    //     // 語法糖的定義是在於讓我們寫的更短更漂亮且不影響原本運作為原則，才稱為「語法糖」
+
+    //     // function => this
+    //     // 箭頭函式 => 沒有 this
+    //     const vm = this;
+    //     setTimeout(function () {
+    //       vm.fn();
+    //     }, 0);
+    //   }
+    // };
+    // // 1. Ray 2. Undefind
+    // obj.fn();
+    // obj.fn2();
+
+
+
+
+
+
+
+
+
+
+    // const wrapObj = {
+    //   someone: '外層物件',
+    //   fn(){
+    //     console.log(this.someone)
+    //   },
+    //   innerObj: {
+    //     someone: '內層物件',
+    //     fn() {
+    //       console.log(this.someone)
+    //     }
+    //   }
+    // }
+    // // wrapObj.fn();
+    // // Q: 請問目前會出現什麼？
+    // // 1.外層物件 2.內層物件
+    // wrapObj.innerObj.fn();
+
+
+
+
+
+
+
+
+
+
+
+    // var someone = '全域變數'; // 請注意，這裡用的是 var
+    // // var 宣告同時會在 window 建立一個物件屬性
+    // // const、let 則不會在 window 下建立一個物件屬性
+    // function callSomeone() {
+    //   console.log(this.someone);
+    // }
+
+    // // 1. undefined 2.全域變數
+    // callSomeone(); // 直接呼叫函式 this 一率都是指向全域，window 簡易呼叫
+
+
+
+
+
+
+
+
+  
+    
+    // 常見錯誤
+    // const array = [100, 500, 300, 1000];
+    // const obj = {
+    //   data: [],
+    //   fn() {
+    //     // 第一種解法
+    //     // const vm = this;
+    //     // array.forEach(function(item)  {
+    //     //   vm.data.push(item + 100);
+    //     // });
+
+    //     // 第二種解法使用箭頭函式 因為箭頭函式沒有 this，所以 this 會參考外層
+    //     // array.forEach((item) => {
+    //     //   this.data.push(item + 100);
+    //     // });
+    //   }
+    // }
+    // obj.fn();
+    // console.log(obj.data);
+
+
+
+
+
+
+
+
+    
+
+    // 為什麼要理解 this?
+    // 為了方便呼叫物件內的其他方法、屬性
+    // const obj = {
+    //   el: '#app',
+    //   data: {
+    //     myName: 'Ray',
+    //   },
+    //   getData() {
+    //     console.log('Hello！');
+    //   },
+    //   created() {
+    //     this.getData();
+    //   }
+    // };
+    // obj.created();
+  </script>
+</body>
+</html>

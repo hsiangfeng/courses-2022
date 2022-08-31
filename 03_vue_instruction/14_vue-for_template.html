@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - template</title>
+</head>
+<body>
+  <h1>Vue 指令 - template</h1>
+
+  <div id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>名字</th>
+          <th>價錢</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 
+          Vue 禁止你 v-for 跟 v-if 放在一起
+          Vue2 v-for 先 v-if 後
+          Vue3 v-if 先 v-for 後
+        -->
+        <template v-for="item in arrayData">
+          <tr v-if="item.price >= 90" :key="item.name">
+            <td>
+              {{ item.name }}
+            </td>
+            <td>
+              {{ item.price }}
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [
+            {
+              name: 'Ray',
+              price: 80,
+            },
+            {
+              name: 'John',
+              price: 90,
+            },
+            {
+              name: 'Tom',
+              price: 60,
+            },
+            {
+              name: 'Mary',
+              price: 100,
+            }
+          ],
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

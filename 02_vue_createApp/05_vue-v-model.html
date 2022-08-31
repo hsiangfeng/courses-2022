@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 雙向綁定</title>
+</head>
+<body>
+  <h1>Vue 雙向綁定</h1>
+  <div id="app">
+    <!-- 後端不要相信前端給的任何資料 -->
+    <!-- 前端是全公開的 -->
+    <!-- Vue 本身也是 JavaScript 實作 -->
+    <p>這是 Vue Data 的文字：{{ text }}</p>
+    <input type="text" v-model="text">
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

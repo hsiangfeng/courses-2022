@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - ES6 模組</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - ES6 模組</h1>
+
+  <div id="app"></div>
+
+  <!-- 核心重點：只要是 ES6 模組 script 標籤一定要補上 type="module" -->
+  <script type="module">
+    // Q: 試著修正該區塊程式碼，讓它能正常運作。
+    import defaultExport from './04_esm.js';
+    const school = [
+      {
+        name: '高雄第一科技大學',
+        students: 1700,
+      },
+      {
+        name: '高雄海洋大學',
+        students: 1200,
+      },
+      {
+        name: '高雄應用科技大學',
+        students: 1200,
+      },
+    ];
+    const app = document.querySelector('#app');
+    defaultExport.render(app, school);
+  </script>
+</body>
+</html>

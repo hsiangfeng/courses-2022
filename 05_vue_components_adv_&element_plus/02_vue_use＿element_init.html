@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue use</title>
+  <!-- Element Plus：https://element-plus.org/zh-CN/ -->
+  <!-- CDN 位置：https://element-plus.org/zh-CN/guide/installation.html#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B4%E6%8E%A5%E5%BC%95%E5%85%A5 -->
+  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+</head>
+<body>
+  <h1>Vue 方法 - use</h1>
+
+  <div id="app">
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: '這是一顆按鈕'
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

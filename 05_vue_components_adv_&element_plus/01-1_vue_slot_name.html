@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 元件 - slot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Vue 元件 - slot 具名插巢</h1>
+
+    <div id="app">
+      <h3>具名插巢</h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            news: {
+              title: '新冠肺炎今本土增2萬802例',
+              body: '中央流行疫情指揮中心說明，今天新增2萬802例COVID-19（2019冠狀病毒疾病）本土病例，確診個案增中重症105例，其中22人死亡；另境外移入增290例。新增一名兒童重症個案，10歲男童出現MIS-C，所幸已康復出院。',
+              source: 'Yahoo！',
+            },
+          }
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+
+</html>

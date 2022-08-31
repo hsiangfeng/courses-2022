@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 測驗</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box a {
+      background-color: red;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vue 測驗</h1>
+
+  <div id="app">
+
+    <h3>Q1：請問該如何避免預設行為？</h3>
+    <a href="https://www.hexschool.com/" @click.prevent="sayHi('Google')">Google</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Q2: 請問該如何避免觸發外層事件？</h3>
+    <div class="box" @click="sayHi('外層')">
+      <a href="https://www.google.com" @click.prevent.stop="sayHi('內層')">Google</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hh>請問該如何按下 Enter 就觸發事件？</h3>
+    <input type="text" class="form-control" @keyup.enter="sayHi('Ray')" v-model="text">
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Vue 指令'
+        };
+      },
+      methods: {
+        sayHi(name){
+          alert(`Hello ${name}`);
+        },
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 方法 - methods</title>
+</head>
+<body>
+  <h1>Vue 方法 - methods</h1>
+  <div id="app">
+    <!-- Q: 請試著撰寫一個方法，然後使用 mounted 觸發跳出視窗打招呼 -->
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          data: [],
+        }
+      },
+      methods: {
+        sayHi() {
+          window.alert('Hello');
+        }
+      },
+      mounted() {
+        this.sayHi();
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

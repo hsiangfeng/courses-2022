@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - 修飾子</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box a {
+      background-color: red;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vue 指令 - 修飾子</h1>
+
+  <div id="app">
+    <h2>事件修飾子</h2>
+
+
+    <h3>.prevent</h3>
+    <p>event.preventDefault()</p>
+    <h4>沒有 .prevent</h4>
+    <a href="#" @click="sayHi('Ray')">點我(無 prevent)</a>
+
+    <h4>有 .prevent</h4>
+    <a href="#" @click.prevent="sayHi('Ray')">點我(有 prevent)</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>.stop</h3>
+    <p>event.stopPropagation()</p>
+    <h4>沒有 stop</h4>
+    <div class="box" @click="sayHi('外層')">
+      <a href="#" @click.prevent="sayHi('內層')">點我</a>
+    </div>
+
+    <h4>有 .stop</h4>
+    <div class="box" @click="sayHi('外層')">
+      <a href="#" @click.prevent.stop="sayHi('內層')">點我</a>
+    </div>
+
+    <h4>stop 相反寫 prevent</h4>
+    <div class="box" @click="sayHi('外層')">
+      <a href="#" @click.stop.prevent="sayHi('內層')">點我</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>.once - 只觸發一次呼叫</h3>
+    
+    <h4>沒有 .once</h4>
+    <button @click="sayHi('button')">點我</button>
+    
+    <h4>有 .once</h4>
+    <a href="#" @click.prevent.once="sayHi('button')">點我</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2>按鍵修飾子</h2>
+    <h4 class="mt-3">別名修飾 - .enter, .esc, .space, .up, .down, .right, .left, .shift</h4>
+    <input type="text" v-model="text" @keyup.enter="sayHi('enter')">
+    <p>{{ text }}</p>
+
+    <h4>組合按鍵</h4>
+    <input type="text" v-model="text" @keyup.enter.shift="sayHi('組合按鈕')">
+    <p>{{ text }}</p>
+
+    <h4>特定按鍵</h4>
+    <input type="text" v-model="text" @keyup.h.a="sayHi('特定按鍵')">
+    <p>{{ text }}</p>
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Vue 指令'
+        };
+      },
+      methods: {
+        sayHi(name){
+          alert(`Hello ${name}`);
+        },
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

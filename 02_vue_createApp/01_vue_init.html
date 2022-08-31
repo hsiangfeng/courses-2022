@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 初始化 - 實體化</title>
+</head>
+<body>  
+  <h1>Vue 初始化 - 實體化</h1>
+
+  <!-- 網頁只會有一個唯一的 ID -->
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    // 1. 第一種寫法
+    // document.querySelector('.app') => 選取 class = app
+    // document.querySelector('#app') => 選取 ID = app
+
+    // Vue 以資料為驅動
+    // Vue.createApp({
+    //   data() {
+    //     return {
+    //       message: 'Hello Vue',
+    //     }
+    //   },
+    //   // 後面章節會在介紹
+    //   methods:{},
+    //   mounted() {}
+    // }).mount('#app');
+
+
+
+
+
+
+
+
+
+
+    // 2. 第二種寫法
+    // 物件解構技巧活用
+    // const { createApp } = Vue;
+    // createApp({
+    //   data() {
+    //     return {
+    //       message: '第二種 Vue 寫法'
+    //     }
+    //   }
+    // }).mount('#app');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 3. 第三種寫法
+    // const { createApp } = Vue;
+
+    // const App = {
+    //   data() {
+    //     return {
+    //       message: '第三種 Vue 的寫法'
+    //     }
+    //   }
+    // };
+    // createApp(App).mount('#app');
+
+
+
+
+
+
+
+
+
+
+
+
+    // 4. 第四種寫法
+    const { createApp } = Vue;
+
+    // Vue 是以資料驅動畫面
+    // 當資料有變化時，畫面就會跟著變動
+    // 預設值也會影響畫面的呈現
+    // Vue 他是基於 MVVVM 理念去設計，但不是 MVVM
+    const app = createApp({
+      data() {
+        return {
+          message: '第四種寫法',
+        }
+      }
+    })
+    
+    app.mount('#app');
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

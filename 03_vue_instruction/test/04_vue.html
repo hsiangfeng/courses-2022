@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 測驗</title>
+</head>
+<body>
+  <h1>Vue 測驗</h1>
+
+  <div id="app">
+    <h3>Q: 請試著使用 message 將資料輸出到畫面上，並使用 Vue 兩種方式</h3>
+
+    {{ message }}
+    <p v-text="message"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <h3>Q: 如果要輸出 HTML 標籤的話該使用什麼指令？</h3>
+    <p v-html="htmlText"></p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          htmlText: '<h1>這是一段話</h1>'
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

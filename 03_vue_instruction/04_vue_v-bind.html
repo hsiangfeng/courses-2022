@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-bind</title>
+  <style>
+    .bg-red {
+      background-color: red;
+    }
+    .text-white {
+      color: white;
+    }
+    .text-danger {
+      color: red;
+    }
+    .text-pink {
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vue 指令 - v-bind</h1>
+
+  <div id="app">
+    <img src="https://fakeimg.pl/100/" alt="這是一張圖片">
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+    <h3>綁定屬性 v-bind</h3>
+    <img v-bind:src="bgData.imgUrl" :alt="bgData.name">
+
+
+
+    <h3>v-bind 縮寫形式</h3>
+    <img :src="bgData.imgUrl" :alt="bgData.name">
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+    <h3>更多屬性綁定</h3>
+
+    <button type="button" :disabled="buttonStatus">點我！</button>
+    <div>
+      <button :type="button" @click="buttonStatus = !buttonStatus">切換狀態</button>
+    </div>
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+    <h3>v-bind class</h3>
+    <!-- 物件 -->
+    <p 
+      class="text-white"
+      :class="{
+        'bg-red': userData.status
+      }"
+    >{{ userData.name }} - {{ userData.money }}</p>
+
+
+
+
+
+
+
+    <!-- 陣列 -->
+    <p 
+      :class="[ userData.activeClass ]"
+    >{{ userData.name }} - {{ userData.money }}</p>
+
+
+
+
+
+
+    <!-- 三元運算子 -->
+    <p 
+      :class="userData.status ? 'text-pink' : 'text-danger'"
+    >{{ userData.name }} - {{ userData.money }}</p>
+    
+
+
+
+
+
+  
+
+    <hr>
+
+    <h3>v-bind style</h3>
+
+    <!-- 核心重點，遇到 - 字號，就轉換成首字大寫 -->
+   <p :style="{
+    fontSize: '20px',
+    backgroundColor: 'red',
+    color: 'white'
+   }">{{ userData.name }} - {{ userData.money }}</p>
+
+
+
+
+
+
+
+
+    <h3>混用 v-for</h3>
+    
+   <ul>
+    <li v-for="(item, index) in arrayData">
+      <img :src="item.imgUrl" :alt="item.name">
+      <p :class="{
+        'bg-red': item.status,
+        'text-white': item.status,
+      }">
+        {{ item.name }}
+      </p>
+    </li>
+   </ul>
+
+
+
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          bgData: {
+            imgUrl: 'https://fakeimg.pl/100/',
+            name: '這是一張圖片',
+          },
+          buttonStatus: true,
+          arrayData: [
+            {
+              name: 'Ray',
+              price: 80,
+              status: true,
+              imgUrl: 'https://fakeimg.pl/100/?text=Ray',
+            },
+            {
+              name: 'John',
+              price: 90,
+              status: false,
+              imgUrl: 'https://fakeimg.pl/100/?text=John',
+            },
+            {
+              name: 'Mary',
+              price: 100,
+              status: false,
+              imgUrl: 'https://fakeimg.pl/100/?text=Mary',
+            }
+          ],
+          userData: {
+            name: 'Ray',
+            money: 1000,
+            status: true,
+            activeClass: 'text-danger',
+          },
+        };
+      },
+      methods: {
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

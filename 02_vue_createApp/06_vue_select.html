@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 雙向綁定</title>
+</head>
+<body>
+  <h1>Vue 雙向綁定</h1>
+
+  <div id="app">
+    <h2>下拉選單</h2>
+    <select v-model="optionText">
+      <option value="">請選擇</option>
+      <option value="1">火雞肉飯</option>
+      <option value="2">叉燒飯</option>
+      <option value="3">鍋燒意麵</option>
+    </select>
+    <p>你選擇了：{{ optionText }}</p>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Q: 如果 option 不寫 value，當選擇叉燒飯時 optionText 會出現什麼？ -->
+    <!-- <select v-model="optionText">
+      <option value="1">請選擇</option>
+      <option value="2">火雞肉飯</option>
+      <option >叉燒飯</option>
+      <option value="4">鍋燒意麵</option>
+    </select> 
+    {{ optionText }} -->
+
+    <!--
+      1. 空字串
+      2. 叉燒飯
+    -->
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+          optionText: '',
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

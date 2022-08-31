@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 進階 - v-model 修飾符</title>
+</head>
+<body>
+  <h1>Vue 進階 - v-model 修飾符</h1>
+
+  <div id="app">
+    <h2>form 表單</h2>
+    <h3>請試著修正產品描述不可前後有空白、販售數量與庫存數量必須為 Number</h3>
+    <form @submit.prevent="onSubmit">
+      <h3>新增產品</h3>
+      <div>
+        <label for="name">產品名稱：</label>
+        <input id="name" type="text" v-model="product.name">
+      </div>
+      <div>
+        <label for="description">產品描述：</label>
+        <input id="description" type="text" v-model="product.description">
+      </div>
+      <div>
+        <label for="category" for="category">產品類別：</label>
+        <select id="category" v-model="product.category">
+          <option value="">請選擇商品類別</option>
+          <option value="食品類">食品類</option>
+          <option value="鐵材類">鐵材類</option>
+          <option value="紡織用紗">紡織用紗類</option>
+        </select>
+      </div>
+      <div>
+        <label for="quantity">販售數量：</label>
+        <input id="quantity" type="text" v-model="product.quantity">
+      </div>
+      <div>
+        <label for="inventory">庫存數量：</label>
+        <input id="inventory" type="text" v-model="product.inventory">
+      </div>
+      <button type="submit">新增產品</button>
+    </form>
+
+    <pre>{{ product }}</pre>
+
+    <br><br><br><br><br>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+
+    const app = createApp({
+      data() {
+        return {
+          product: {
+            name: '',
+            description: '',
+            category: '',
+            quantity: '',
+            inventory: '',
+          }
+        }
+      },
+      methods: {
+        onSubmit() {
+          window.alert('送出成功！')
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

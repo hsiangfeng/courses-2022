@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 基礎 - ES6 模組</title>
+</head>
+<body>
+  <h1>JavaScript 基礎 - ES6 模組</h1>
+
+  <div id="app"></div>
+
+
+  <!-- 宣告成 ES6 模組模式 -->
+  <script type="module">
+    // const data = [
+    //   {
+    //     name: 'Ray',
+    //     price: 80,
+    //   },
+    //   {
+    //     name: 'John',
+    //     price: 90,
+    //   },
+    //   {
+    //     name: 'Mary',
+    //     price: 100,
+    //   }
+    // ];
+    // #app => 選取 ID = app
+    // .class => 選取 Class = app
+    // const app = document.querySelector('#app');
+    // data.forEach((item) => {
+    //   app.innerHTML += `<p>${item.name}</p>`;
+    // })
+
+    // 拆成 ESM 的模組
+
+    // 具名匯出
+    // 變數拆出去改用具名匯出方式
+    // import { data } from './04_esm_1.js';
+    // const app = document.querySelector('#app');
+    // data.forEach((item) => {
+    //   app.innerHTML += `<p>${item.name}</p>`;
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    // 預設匯出
+    // 將迴圈的部分拆出去並使用預設匯出
+    import defaultExport from './04_esm_2.js';
+    const data = [
+      {
+        name: 'Ray',
+        price: 80,
+      },
+      {
+        name: 'John',
+        price: 90,
+      },
+      {
+        name: 'Mary',
+        price: 100,
+      }
+    ];
+    const app = document.querySelector('#app');
+    defaultExport.render(app, data);
+  </script>
+</body>
+</html>

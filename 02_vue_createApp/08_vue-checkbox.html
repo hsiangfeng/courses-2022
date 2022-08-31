@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 雙向綁定</title>
+</head>
+<body>
+  <h1>Vue 雙向綁定</h1>
+
+  <div id="app">
+
+    <h2>單選按鈕</h2>
+    <label for="checkbox">狀態</label>
+    <input v-model="checkboxStatus" id="checkbox" type="checkbox">
+    <p>{{ checkboxStatus }}</p>
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+    <h2>多選按鈕</h2>
+    <div>
+      <input v-model="checkboxArray" type="checkbox" id="check1" value="雞">
+      <label for="check1">雞</label>
+    </div>
+    <div>
+      <input v-model="checkboxArray" type="checkbox" id="check2" value="豬">
+      <label for="check2">豬</label>
+    </div>
+    <div>
+      <input v-model="checkboxArray" type="checkbox" id="check3" value="牛">
+      <label for="check3">牛</label>
+    </div>
+    <p>{{ checkboxArray }}</p>
+  </div>
+
+
+
+
+
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+    // Vue 基於資料來驅動畫面
+    // MVVVM 的理念來設計
+    const app = createApp({
+      data() {
+        return {
+          checkboxStatus: true,
+          checkboxArray: [],
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 元件 - 全域元件</title>
+  <style>
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ccc;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vue 元件 - 全域元件</h1>
+
+  <div id="app">
+    <p>{{ text }}</p>
+    <my-component></my-component>
+  </div>
+  
+
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: 'Hello Vue!'
+        }
+      },
+    });
+
+    // 全域註冊/元件
+    app.component('my-component', {
+      template: /*html*/`
+        <p>{{ text }}</p>
+      `,
+      data() {
+        return {
+          text: '這是一段話',
+        };
+      },
+      methods: {},
+      computed: {},
+      watch: {},
+      mounted(){},
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>

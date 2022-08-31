@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 方法 - methods</title>
+</head>
+<body>
+  <h1>Vue 方法 - methods</h1>
+  <p>由 methods 定義物件</p>
+  <p>因此內層均為函式</p>
+  <div id="app">
+    {{ data }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          data: [],
+        }
+      },
+      methods: {
+        getData() {
+          axios.get('https://randomuser.me/api/')
+            .then((res) => {
+              this.data = res.data.results;
+            })
+        }
+      },
+      mounted() {
+        this.getData()
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

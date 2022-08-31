@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 生命週期</title>
+</head>
+<body>
+  <h1>Vue 生命週期</h1>
+
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in arrayData" :key="`${item.name}${index}`"></li>
+    </ul>
+    <p id="text">{{ text }}</p>
+  </div>
+
+  
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrayData: [
+            {
+              name: 'Ray',
+              price: 80,
+            },
+            {
+              name: 'John',
+              price: 90,
+            },
+            {
+              name: 'Mary',
+              price: 100,
+            }
+          ],
+          text: 'Hello Vue',
+        }
+      },
+      methods: {
+
+      },
+      // Q1.請問剛剛介紹的常用生命週期有哪兩個？
+      // created、mounted
+
+
+
+
+      // Q2. 如果要選取 DOM 的話應該要在哪一個？
+      mounted() {
+        const textDom = document.getElementById('text');
+        console.log('mounted', textDom);
+        console.dir(textDom);
+      }
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

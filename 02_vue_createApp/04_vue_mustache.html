@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 花括號</title>
+</head>
+<body>  
+  <h1>Vue 花括號</h1>
+
+  <div id="app">
+    <!-- Vue 花括號只能接受表達式、表示式、運算式 -->
+    <!-- 絕對不是正規表達式 -->
+
+    <p>我的名字：{{ name }}</p>
+    <p>原價：{{ num * 2 }} $</p>
+    <p>售價：{{ num }} $</p>
+    <p>{{ status ? '今天午餐超好吃！' : '今天午餐超不好吃！' }}</p>
+    <p>{{ `${name} 在 ${position} 吃早餐！` }}</p>
+    <p>{{ message.split('').reverse().join('') }}</p>
+
+
+    <!-- 非表達式 Vue 則無法運作而出現錯誤 -->
+    <!-- {{ const qq = '這是一句話' }} -->
+
+    <!-- {{ if(true) { return '這是一段話' } }} -->
+
+    <!--
+      補充什麼是表達式：https://israynotarray.com/javascript/20200607/196651152/
+     -->
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const { createApp } = Vue;
+    const app = createApp({
+      data(){
+        return {
+          name: 'Ray',
+          position: '早安山丘',
+          status: true,
+          num: 10,
+          message: 'Hello Vue!',
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 元件 - emit</title>
+</head>
+<body>
+  <h1>Vue 元件 - emit</h1>
+
+  <div id="app">
+    <h3>Emit 觸發外部事件</h3>
+    <p>先定義外層 $emit 觸發的方法</p>
+    <p>使用 v-on 去觸發外層方法(口訣：前內、後外)</p>
+
+
+    <p>count：{{ count }}</p>
+    <button-add @add="addNum"></button-add>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Emit 傳遞資料</h3>
+    <p>text：{{ text }}</p>
+    <button-text @emit-text="getText"></button-text>
+
+
+
+
+
+    <button-text :data="text" @emit-text="getText"></button-text>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 0,
+          text: '初始資料',
+        }
+      },
+      methods: {
+        addNum() {
+          console.log('addNum');
+          this.count++
+        },
+        getText(text) {
+          console.log('getText');
+          this.text = text;
+        }
+      },
+    });
+
+    app.component('button-add', {
+      methods: {
+        emit() {
+          this.$emit('add')
+        }
+      },
+      template: /*html*/`<button type="button" @click="emit">add</button>`
+    });
+
+
+    app.component('button-text', {
+      data() {
+        return {
+          text: '元件內的資料'
+        }
+      },
+      methods: {
+        emit() {
+          this.$emit('emit-text', this.text)
+        }
+      },
+      template: /*html*/`<button type="button" @click="emit">emit data</button>`
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>

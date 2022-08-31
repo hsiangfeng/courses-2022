@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 元件</title>
+</head>
+<body>
+  <h1>Vue 元件</h1>
+
+  <div id="app">
+    <!-- 請將 header、main 與 footer 使用 ESM 方式個別拆成獨立元件並使用區域註冊方式 -->
+    <header-component></header-component>
+    <main-component></main-component>
+    <footer-component></footer-component>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script type="module">
+    import headerComponent from './10-1_header.js';
+    import mainComponent from './10-1_main.js';
+    import footerComponent from './10-1_footer.js';
+    const app = Vue.createApp({
+      data() {
+        return {
+        }
+      },
+      components: {
+        headerComponent,
+        mainComponent,
+        footerComponent,
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>

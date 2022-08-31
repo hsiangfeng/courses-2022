@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 指令 - v-else</title>
+</head>
+<body>
+  <h1>Vue 指令 - v-else</h1>
+
+  <div id="app">
+    <p v-if="status">{{ text1 }}</p>
+    <p v-else>{{ text2 }}</p>
+    <button type="button" @click="status = !status">切換狀態</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          status: true,
+          text1: '這是第一段話',
+          text2: '這是第二段話',
+        }
+      },
+    })
+    app.mount('#app');
+  </script>
+</body>
+</html>
