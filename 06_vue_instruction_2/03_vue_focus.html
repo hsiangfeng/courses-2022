@@ -11,7 +11,8 @@
   <h1>Vue 進階指令 - 使用 ref 觸發 focus</h1>
 
   <div id="app">
-    
+    <el-input type="text" ref="input" id="input" placeholder="Please Input"></el-input>
+    <el-button type="primary" @click="focus">點我關注 input</el-button>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
@@ -24,6 +25,11 @@
         }
       },
       methods: {
+        focus() {
+          // 可以比較兩者寫法差異
+          // document.getElementById('input').focus();
+          this.$refs.input.focus();
+        }
       },
     })
     app.use(ElementPlus);

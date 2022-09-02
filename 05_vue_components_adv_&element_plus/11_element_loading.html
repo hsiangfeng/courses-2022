@@ -16,6 +16,11 @@
     <div id="app">
 
       <h2>Element 讀取 - 基礎讀取</h2>
+      <el-table :data="data" v-loading="isLoading">
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="price" label="價錢"></el-table-column>
+      </el-table>
+      <el-button type="primary" @click="toggleLoading">點我開啟 Loading</el-button>
 
 
 
@@ -47,7 +52,15 @@
 
 
       <h2>Element 讀取 - 自訂讀取文字</h2>
-
+      <el-table
+        :data="data"
+        v-loading="isLoading"
+        element-loading-text="Loading..."
+        >
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="price" label="價錢"></el-table-column>
+      </el-table>
+      <el-button type="primary" @click="toggleLoading">點我開啟 Loading</el-button>
 
 
 
@@ -69,6 +82,19 @@
 
 
       <h2>Element 讀取 - 最適合的場景</h2>
+
+      <el-table
+        :data="users"
+        v-loading="isLoading"
+        element-loading-text="Loading..."
+        >
+        <el-table-column prop="name" label="姓名">
+          <template #default="{ row }">
+            {{ row.name.last }}{{ row.name.first }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="location.city" label="居住城市"></el-table-column>
+      </el-table>
 
 
     </div>

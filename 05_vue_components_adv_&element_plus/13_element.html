@@ -10,6 +10,23 @@
   <!-- Element Plus：https://element-plus.org/zh-CN/ -->
   <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
 </head>
+
+<style>
+  .el-main {
+    padding-top: 0px
+  }
+  .sticky-top {
+    position: sticky;
+    top: 0;
+  }
+  .mb-1 {
+    margin-bottom: 1rem;
+  }
+  .el-demo-table tbody tr{
+    cursor: pointer;
+  }
+</style>
+
 <body>
   <h1>章節小作業</h1>
 
@@ -17,7 +34,7 @@
   <p>請將作業改用 Element UI 改寫</p>
 
   <div id="app">
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-md-4">
           <ul class="list-group">
@@ -40,7 +57,34 @@
           <p v-else class="sticky-top">請選擇景點</p>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <el-container>
+      <el-main>
+        <el-row :gutter="30">
+          <el-col :md="6">
+            <el-table
+              highlight-current-row
+              @current-change="getData"
+              class="el-demo-table"
+              :data="arrayData"
+            >
+              <el-table-column prop="Name" label="地區"></el-table-column>
+            </el-table>
+          </el-col>
+          <el-col :md="18">
+            <el-card v-if="cacheData.Name">
+              <template #header>
+                {{ cacheData.Name }}
+              </template>
+              <el-image :src="cacheData.Picture1" :alt="cacheData.Name" fit="cover"></el-image>
+              <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                      :src='`https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=${cacheData.Py},${cacheData.Px}(${cacheData.Name})&z=16&output=embed`'></iframe>
+            </el-card>
+          </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
@@ -55,6 +99,11 @@
           cacheData: {},
           arrayData: [],
         }
+      },
+      methods: {
+        getData(data) {
+          this.cacheData = data
+        },
       },
       mounted() {
         // 高雄旅遊網 API：https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json

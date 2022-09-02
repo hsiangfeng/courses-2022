@@ -49,13 +49,39 @@
     <hr>
 
     <div id="app">
-
+      <el-container>
+        <el-main>
+          <el-row :gutter="30">
+            <el-col :md="6">
+              <h3>你感興趣的景點</h3>
+              <ul>
+                <li v-for="(item, index) in selectArea" :key="`${item.Name}${index}`">
+                  {{ item.Name }}
+                </li>
+              </ul>
+            </el-col>
+            <el-col :md="18">
+              <h3>點擊卡片加入感興趣列表</h3>
+              <el-row :gutter="30">
+                <el-col :span="8" v-for="item in cacheData" :key="item.id">
+                  <vue-card :data="item" @add="getTitle"></vue-card>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="//unpkg.com/element-plus"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module">
+      import vueCard from './章節作業.js';
+
       const app = Vue.createApp({
+        components: {
+          vueCard,
+        },
         data() {
           return {
             selectArea: [],
@@ -68,9 +94,12 @@
             this.isLoading = true;
             axios.get('https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json')
               .then((res) => {
-                this.arrayData = res.data.result.records
+                this.cacheData = res.data.result.records
               })
           },
+          getTitle(data) {
+            this.selectArea.push(data)
+          }
         },
         mounted() {
           this.getData()

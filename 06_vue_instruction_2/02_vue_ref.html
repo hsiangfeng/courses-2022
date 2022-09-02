@@ -11,6 +11,9 @@
 
   <div id="app">
     <p ref="text">{{ text }}</p>
+
+
+    <div ref="divRef">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam magni tempora, nam vitae enim ea blanditiis eum repellendus aspernatur nemo nostrum eveniet nobis obcaecati consequuntur itaque ad architecto quibusdam porro.</div>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
@@ -22,7 +25,7 @@
         }
       },
       mounted() {
-
+        console.log('refs',this.$refs.divRef);
       }
     })
     app.mount('#app');

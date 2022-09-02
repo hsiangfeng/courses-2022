@@ -15,7 +15,12 @@
 
     <div id="app">
       <h2>Element 圖片 - 基礎</h2>
-
+      <div>
+        <template v-for="item in fit" :key="item">
+          <h3>{{ item }}</h3>
+          <el-image style="height:200px; width: 200px;" :src="url" :fit="item"></el-image>
+        </template>
+      </div>
 
 
 
@@ -32,6 +37,7 @@
       const app = Vue.createApp({
         data() {
           return {
+            fit: ['fill', 'contain', 'cover', 'none', 'scale-down'],
             url: 'https://images.unsplash.com/photo-1661599015571-919455aad895?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
           }
         },

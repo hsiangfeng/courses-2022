@@ -15,6 +15,8 @@
     <h2>表單</h2>
 
     <h3>輸入欄位</h3>
+    <el-input v-model="message" placeholder="請輸入資料"></el-input>
+    {{ message }}
     
 
 
@@ -44,7 +46,11 @@
 
 
     <h3>下拉選單</h3>
-    
+    <el-select v-model="selectText">
+      <el-option value="1">火雞肉飯</el-option>
+      <el-option value="2">肉燥飯</el-option>
+      <el-option value="3">雞絲飯</el-option>
+    </el-select>
 
 
 
@@ -77,7 +83,11 @@
   
 
     <h3>單選</h3>
-    
+    <el-radio-group v-model="radioText">
+      <el-radio label="1">雞</el-radio>
+      <el-radio label="2">豬</el-radio>
+      <el-radio label="3">羊</el-radio>
+    </el-radio-group>
 
 
 
@@ -104,7 +114,11 @@
 
 
     <h3>多選</h3>
-    
+    <el-checkbox-group v-model="checkAll">
+      <el-checkbox label="1">雞</el-checkbox>
+      <el-checkbox label="2">豬</el-checkbox>
+      <el-checkbox label="3">羊</el-checkbox>
+    </el-checkbox-group>
 
 
 
@@ -133,7 +147,25 @@
 
 
     <h3>完整表單</h3>
-    
+    <el-form @submit.prevent="submitForm">
+      <el-form-item label="Email：">
+        <el-input type="email" placeholder="請輸入 Email"></el-input>
+      </el-form-item>
+      <el-form-item label="Password：">
+        <el-input type="password" placeholder="請輸入密碼"></el-input>
+      </el-form-item>
+      <el-form-item label="請選擇要吃的肉">
+        <el-checkbox-group v-model="checkAll">
+          <el-checkbox label="1">雞</el-checkbox>
+          <el-checkbox label="2">豬</el-checkbox>
+          <el-checkbox label="3">羊</el-checkbox>
+        </el-checkbox-group>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" native-type="submit">送出表單</el-button>
+        <el-button  native-type="reset">重設表單</el-button>
+      </el-form-item>
+    </el-form>
 
 
 
@@ -149,6 +181,10 @@
     const app = Vue.createApp({
       data() {
         return {
+          message: '',
+          selectText: '',
+          radioText: '',
+          checkAll: [],
         }
       },
       methods: {

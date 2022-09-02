@@ -16,9 +16,16 @@
     <div id="app">
       <h3>v-slot 縮寫</h3>
 
+      <card :data="data">
+        <template #footer>
+          <div class="card-footer">{{ data.title }}</div>
+        </template>
+      </card>
 
 
-
+      <!-- Q: 使用 Slot 與 Props 傳遞資料到元件內有什麼差別？ -->
+      <!-- 1. Props 主要是用來傳遞「資料」，而不是傳遞「DOM」。 -->
+      <!-- 2. Slot 主要是用來傳遞「DOM」，而不是傳遞「資料」。 -->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
@@ -40,6 +47,24 @@
           }
         },
       });
+
+      app.component('card', {
+        props: ['data'],
+        template: /*html*/`
+        <div class="card" style="width: 18rem;">
+          <img src="https://fakeimg.pl/300/" class="card-img-top" alt="...">
+          <div class="card-header">預設表頭</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ data.title }}</h5>
+            <p class="card-text">{{ data.body }}</p>
+            <a href="#" @click.prevent class="btn btn-primary">{{ data.source }}</a>
+          </div>
+          <slot name="footer">
+            <div class="card-header">預設表尾</div>
+          </slot>
+        </div>
+        `,
+      })
 
       app.mount('#app');
     </script>

@@ -12,13 +12,17 @@
   <div id="app">
     <h2>.lazy</h2>
     <h3>沒有 .lazy</h3>
-
+    <input type="text" v-model="text">
+    <p>{{ text }}</p>
 
 
 
 
 
     <h3>有 .lazy</h3>
+    <p>重點：使用者離開 input 欄位時才會更新</p>
+    <input type="text" v-model.lazy="text">
+    <p>{{ text }}</p>
 
 
 
@@ -47,10 +51,15 @@
 
 
     <h3>沒有 .number</h3>
-    
+    <input type="text" v-model="num1">
+    <p>文字：{{ num1 }}</p>
+    <p>型別：{{ typeof num1 }}</p>
 
 
     <h3>有 .number</h3>
+    <input type="text" v-model.number="num2">
+    <p>文字：{{ num2 }}</p>
+    <p>型別：{{ typeof num2 }}</p>
     
 
 
@@ -71,10 +80,11 @@
 
     建議搭配 Vue DevTools 才看得出來
     <h3>沒有 .trim</h3>
-    
+    <input type="text" v-model="text">
 
 
     <h3>有 .trim</h3>
+    <input type="text" v-model.trim="text">
     
 
 
@@ -89,7 +99,9 @@
     const app = createApp({
       data() {
         return {
-
+          text: '',
+          num1: 0,
+          num2: 0,
         }
       },
     })

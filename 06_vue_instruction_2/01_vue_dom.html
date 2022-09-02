@@ -21,8 +21,13 @@
           text: 'Hello Vue!'
         }
       },
+      created() {
+        const textDom = document.getElementById('text');
+        console.log('created', textDom)
+      },
       mounted() {
-
+        const textDom = document.getElementById('text');
+        console.log('mounted', textDom)
       }
     })
     app.mount('#app');

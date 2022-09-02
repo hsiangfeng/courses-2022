@@ -13,7 +13,19 @@
 <body>
 
   <div id="app">
+    <!-- Q:為什麼要了解 Component、Props、Emit、Slot？ -->
+    <!-- 除了實戰上很常用到之外，ElementPlus 本身整體全部都是「元件」、傳遞資料都是 Props 事件觸發都是 Emit 與 Slot，因此這些觀念很重要 -->
     <h2>ElementPlus 按鈕</h2>
+    <!-- el-* -->
+    <el-container>
+      <el-button type="primary" :loading="true">Loading</el-button>
+      <el-button type="primary" :loading="true">
+        <template #loading>
+          <i class="fa-solid fa-atom fa-spin fa-2x"></i>
+        </template>
+      </el-button>
+    </el-container>
+
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>

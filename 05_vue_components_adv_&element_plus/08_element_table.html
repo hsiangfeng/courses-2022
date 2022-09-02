@@ -20,6 +20,20 @@
 
     <div id="app">
       <h2>表格</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>居住城市</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in users" :key="user.id.value">
+            <td>{{ user.name.last }}{{ user.name.first}}</td>
+            <td>{{ user.location.city }}</td>
+          </tr>
+        </tbody>
+      </table>
 
 
 
@@ -52,7 +66,10 @@
 
 
       <h2>Element 表格</h2>
- 
+      <el-table :data="users">
+        <el-table-column prop="name.last" label="姓名"></el-table-column>
+        <el-table-column prop="location.city" label="居住地"></el-table-column>
+      </el-table>
 
 
 
@@ -88,7 +105,14 @@
 
 
       <h2>Element 表格 - 客製化注入內容</h2>
-
+      <el-table :data="users">
+        <el-table-column prop="name.last" label="姓名">
+          <template #default="{ row }">
+            {{ row.name.last }} {{ row.name.first }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="location.city" label="居住地"></el-table-column>
+      </el-table>
 
 
 
@@ -114,7 +138,18 @@
 
 
       <h2>Element 表格 - 點擊事件</h2>
-     
+      <el-table
+        stripe
+        highlight-current-row
+        @current-change="handleMethods"
+        :data="users">
+        <el-table-column prop="name.last" label="姓名">
+          <template #default="{ row }">
+            {{ row.name.last }} {{ row.name.first }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="location.city" label="居住地"></el-table-column>
+      </el-table>
 
 
 
@@ -149,7 +184,19 @@
 
 
       <h2>Element 表格 - 點擊事件(樣式給予)</h2>
-      
+      <el-table
+        class="el-demo-table"
+        stripe
+        highlight-current-row
+        @current-change="handleMethods"
+        :data="users">
+        <el-table-column prop="name.last" label="姓名">
+          <template #default="{ row }">
+            {{ row.name.last }} {{ row.name.first }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="location.city" label="居住地"></el-table-column>
+      </el-table>
 
 
 

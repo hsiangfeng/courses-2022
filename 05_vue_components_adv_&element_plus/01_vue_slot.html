@@ -15,6 +15,14 @@
 
     <div id="app">
       <h3>元件插槽</h3>
+      <card :data="data">
+        <div class="card-header">今日頭條</div>
+      </card>
+
+      <hr>
+
+      <card :data="data">
+      </card>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -33,6 +41,21 @@
           }
         },
       });
+      app.component('card', {
+        props: ['data'],
+        template: /*html*/`
+        <div class="card" style="width: 18rem;">
+          <img src="https://fakeimg.pl/300/" class="card-img-top" alt="...">
+          <slot></slot>
+          <div class="card-body">
+            <h5 class="card-title">{{ data.title }}</h5>
+            <p class="card-text">{{ data.body }}</p>
+            <a href="#" @click.prevent class="btn btn-primary">{{ data.source }}</a>
+          </div>
+          <div class="card-footer"> 2 days ago</div>
+        </div>
+        `,
+      })
       app.mount('#app');
     </script>
   </body>

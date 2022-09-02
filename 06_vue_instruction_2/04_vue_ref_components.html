@@ -11,6 +11,8 @@
 
   <div id="app">
     <p>{{ text }}</p>
+    <button type="button" @click="fn">點我(父層)</button>
+    <my-component ref="component"></my-component>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
@@ -23,6 +25,28 @@
         }
       },
       methods: {
+        fn() {
+          // console.log(this.$refs.component);
+          // console.log(this.$refs.component.text);
+          // this.$refs.component.sayHi();
+        }
+      }
+    });
+    
+    app.component('my-component', {
+      template: /*html*/`
+        <p>{{ text }}</p>
+        <button type="button" @click="sayHi">點我(元件)</button>
+      `,
+      data() {
+        return {
+          text: '我是一個元件！'
+        }
+      },
+      methods: {
+        sayHi() {
+          window.alert('Hello');
+        }
       }
     })
 

@@ -59,8 +59,20 @@
   <div id="app">
     <!-- 開頭都是以 el-* 為主 -->
 
+    <!-- el-container flex，裡面有放 header 或 footer 採用垂直上下列，如果採用水平排列 -->
     <h2>ElementPlus 容器</h2>
     <h3>版型 1</h3>
+
+    <el-container>
+      <el-header>Header</el-header>
+      <el-container>
+        <el-aside>Aside</el-aside>
+        <el-container>
+          <el-main>main</el-main>
+          <el-footer> footer</el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
 
 
 
@@ -87,7 +99,11 @@
 
 
     <h3>版型 2</h3>
-
+    <el-container>
+      <el-header>header</el-header>
+      <el-main>main</el-main>
+      <el-footer>footer</el-footer>
+    </el-container>
 
 
 
@@ -111,6 +127,16 @@
 
 
     <h3>版型 3</h3>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-container>
+        <el-aside>Aside</el-aside>
+        <el-container>
+          <el-main>Main</el-main>
+        </el-container>
+      </el-container>
+      <el-footer>Footer</el-footer>
+    </el-container>
 
 
 

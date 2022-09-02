@@ -14,6 +14,12 @@
   <div id="app">
     <!-- 開頭都是以 el-* 為主 -->
     <h3>ElementPlus 連結</h3>
+    <el-link href="https://google.com.tw">Default</el-link> ｜
+    <el-link type="primary">Primary</el-link> ｜
+    <el-link type="success">Success</el-link> ｜
+    <el-link type="warning">Warning</el-link> ｜
+    <el-link type="info">Info</el-link> ｜
+    <el-link type="danger">Danger</el-link>
 
 
 
@@ -113,7 +119,12 @@
     <h3>連結切換示範</h3>
 
 
-
+    <el-link href="https://google.com.tw" disabled>Default</el-link> ｜
+    <el-link type="primary" disabled>Primary</el-link> ｜
+    <el-link type="success" disabled >Success</el-link> ｜
+    <el-link type="warning"disabled >Warning</el-link> ｜
+    <el-link type="info" disabled>Info</el-link> ｜
+    <el-link type="danger" disabled>Danger</el-link>
 
 
 
@@ -140,8 +151,9 @@
 
     <h3>連結下劃線</h3>
 
-
-
+    
+    <el-link type="primary" >有 underline</el-link> ｜
+    <el-link type="primary" :underline="false">沒有 underline</el-link> ｜
 
 
 

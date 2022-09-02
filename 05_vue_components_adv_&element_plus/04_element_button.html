@@ -15,6 +15,12 @@
     <!-- 開頭都是以 el-* 為主 -->
     <h2>ElementPlus 按鈕</h2>
     <h3>基礎按鈕</h3>
+    <el-button>Default</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">info</el-button>
+    <el-button type="warning">Warning</el-button>
+    <el-button type="danger">Danger</el-button>
 
 
 
@@ -38,6 +44,12 @@
 
 
     <h3>plain 按鈕</h3>
+    <el-button plain>Default</el-button>
+    <el-button type="primary" plain>Primary</el-button>
+    <el-button type="success" plain>Success</el-button>
+    <el-button type="info" plain>info</el-button>
+    <el-button type="warning" plain>Warning</el-button>
+    <el-button type="danger" plain>Danger</el-button>
     
 
 
@@ -65,6 +77,13 @@
 
 
     <h3>round 按鈕</h3>
+    <el-button round >Default</el-button>
+    <el-button type="primary" round>Primary</el-button>
+    <el-button type="success" round>Success</el-button>
+    <el-button type="info" round>info</el-button>
+    <el-button type="warning" round>Warning</el-button>
+    <el-button type="danger" round>Danger</el-button>
+    
 
 
 
@@ -82,7 +101,12 @@
     <hr>
 
     <h3>circle 按鈕</h3>
-
+    <el-button circle >Default</el-button>
+    <el-button type="primary" circle>Primary</el-button>
+    <el-button type="success" circle>Success</el-button>
+    <el-button type="info" circle>info</el-button>
+    <el-button type="warning" circle>Warning</el-button>
+    <el-button type="danger" circle>Danger</el-button>
 
 
 
@@ -117,7 +141,12 @@
 
 
     <h3>按鈕禁用</h3>
-
+    <el-button disabled>Default</el-button>
+    <el-button type="primary" disabled>Primary</el-button>
+    <el-button type="success" disabled>Success</el-button>
+    <el-button type="info" disabled>info</el-button>
+    <el-button type="warning" disabled>Warning</el-button>
+    <el-button type="danger" disabled>Danger</el-button>
 
 
 
@@ -145,7 +174,14 @@
 
 
     <h3>按鈕切換示範</h3>
+    <el-button :disabled="btnState">Default</el-button>
+    <el-button type="primary" :disabled="btnState">Primary</el-button>
+    <el-button type="success" :disabled="btnState">Success</el-button>
+    <el-button type="info" :disabled="btnState">info</el-button>
+    <el-button type="warning" :disabled="btnState">Warning</el-button>
+    <el-button type="danger" :disabled="btnState">Danger</el-button>
 
+    <el-button type="primary" @click="btnState = !btnState">切換狀態</el-button>
 
    
 
@@ -195,9 +231,15 @@
 
     <h3>大/小按鈕</h3>
 
-   
+    <el-button type="primary" size="small">小按鈕</el-button>
+    <el-button type="primary">預設</el-button>
+    <el-button type="primary" size="large">大按鈕</el-button>
 
 
+
+
+    <h3>讀取效果</h3>
+    <el-button type="primary" size="small" :loading="true">小按鈕</el-button>
 
 
 

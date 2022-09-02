@@ -27,34 +27,29 @@
 
   <div id="app">
     <!-- 開頭都是以 el-* 為主 -->
+    <!-- ElementPlus 以 24 欄為基準 -->
     <h2>ElementPlus 格線系統</h2>
-    <h3>1 欄位</h3>
-    
+    <h3>1 欄位(24)</h3>
+    <el-row>
+      <el-col class="bg-light" :span="24">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
 
 
 
 
     <hr>
 
-    <h3>2 欄位</h3>
-
-
-
-
-
-
-
-
-
-
-    <hr>
-
-
-
-
-
-    <h3>3 欄位</h3>
-    
+    <h3>2 欄位(12)</h3>
+    <el-row>
+      <el-col class="bg-light" :span="12">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="12">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
 
 
 
@@ -71,9 +66,50 @@
 
 
 
+    <h3>3 欄位(8)</h3>
+    <el-row>
+      <el-col class="bg-light" :span="8">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="8">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="8">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
 
-    <h3>4 欄位</h3>
-    
+
+
+
+
+
+
+
+
+
+    <hr>
+
+
+
+
+
+
+    <h3>4 欄位(6)</h3>
+    <el-row>
+      <el-col class="bg-light" :span="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :span="6">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
 
 
 
@@ -91,7 +127,30 @@
 
 
     <h3>響應式設計</h3>
+    <p>支援五個尺寸 xs、sm、md、lg、xl</p>
+    <ul>
+      <li>xs < 768px</li>
+      <li>sm >= 768px</li>
+      <li>md >= 992px</li>
+      <li>lg >= 1200px</li>
+      <li>xl >= 1920</li>
+    </ul>
 
+
+    <el-row>
+      <el-col class="bg-light" :md="6" :sm="12">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :md="6" :sm="12">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :md="6" :sm="12">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :md="6" :sm="12">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
 
 
 
@@ -112,7 +171,20 @@
     <p>768px 以下時呈現單欄</p>
     <p>768px 以上呈現兩欄</p>
     <p>1200px 以上呈現四欄</p>
-    
+    <el-row>
+      <el-col class="bg-light" :xs="24" :sm="12" :lg="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :xs="24" :sm="12" :lg="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :xs="24" :sm="12" :lg="6">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col class="bg-light" :xs="24" :sm="12" :lg="6">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>

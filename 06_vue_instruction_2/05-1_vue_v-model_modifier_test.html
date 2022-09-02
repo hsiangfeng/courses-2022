@@ -11,16 +11,16 @@
 
   <div id="app">
     <h2>form 表單</h2>
-    <h3>請試著修正產品描述不可前後有空白、販售數量與庫存數量必須為 Number</h3>
+    <h3>請試著修正產品描述不可前後有空白、庫存數量必須為販售數量與 Number</h3>
     <form @submit.prevent="onSubmit">
       <h3>新增產品</h3>
       <div>
         <label for="name">產品名稱：</label>
-        <input id="name" type="text" v-model="product.name">
+        <input id="name" type="text" v-model.trim="product.name">
       </div>
       <div>
         <label for="description">產品描述：</label>
-        <input id="description" type="text" v-model="product.description">
+        <input id="description" type="text" v-model.trim="product.description">
       </div>
       <div>
         <label for="category" for="category">產品類別：</label>
@@ -33,11 +33,11 @@
       </div>
       <div>
         <label for="quantity">販售數量：</label>
-        <input id="quantity" type="text" v-model="product.quantity">
+        <input id="quantity" type="text" v-model.number="product.quantity">
       </div>
       <div>
         <label for="inventory">庫存數量：</label>
-        <input id="inventory" type="text" v-model="product.inventory">
+        <input id="inventory" type="text" v-model.number="product.inventory">
       </div>
       <button type="submit">新增產品</button>
     </form>
